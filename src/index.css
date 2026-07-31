@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #d9e6ff;
+  --color-brand-200: #bcd4ff;
+  --color-brand-300: #8eb8ff;
+  --color-brand-400: #5990ff;
+  --color-brand-500: #2f6af7;
+  --color-brand-600: #1a4fe3;
+  --color-brand-700: #0b3d91;
+  --color-brand-800: #0a3278;
+  --color-brand-900: #0c2b5c;
+  --color-brand-950: #081a3a;
+
+  --color-surface: #f7f9fc;
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-slate-900 font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(47, 106, 247, 0.08), transparent),
+      linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+  }
+
+  .dark body,
+  html.dark body {
+    @apply bg-brand-950 text-slate-100;
+    background-image:
+      radial-gradient(ellipse 70% 40% at 50% -10%, rgba(47, 106, 247, 0.18), transparent),
+      linear-gradient(180deg, #081a3a 0%, #0a2548 100%);
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply border border-white/40 bg-white/70 shadow-[0_8px_32px_rgba(15,23,42,0.06)] backdrop-blur-xl;
+  }
+
+  .dark .glass {
+    @apply border-white/10 bg-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.25)];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-700 via-brand-500 to-brand-600 bg-clip-text text-transparent;
+  }
+
+  .section-pad {
+    @apply px-5 py-20 sm:px-8 lg:px-12 lg:py-28;
+  }
+}
