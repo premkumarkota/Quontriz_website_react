@@ -12,7 +12,7 @@ export function Technologies() {
         <SectionHeading
           eyebrow="Technology Stack"
           title="What we’re building with"
-          description="Flutter and FastAPI for LuxeHome and MyMentor — plus Oracle platforms for our consulting practice."
+          description="Flutter and FastAPI for mobile app delivery — plus Oracle platforms for our consulting practice."
         />
       </Container>
 

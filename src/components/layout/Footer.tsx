@@ -22,16 +22,16 @@ const columns = [
   {
     title: 'Services',
     links: [
-      { label: 'LuxeHome', href: '#portfolio' },
-      { label: 'MyMentor', href: '#portfolio' },
+      { label: 'Mobile App Solutions', href: '#services' },
+      { label: 'Custom App Engineering', href: '#services' },
       { label: 'Oracle Advisory', href: '#services' },
-      { label: 'Product Engineering', href: '#services' },
+      { label: 'UI/UX for Mobile', href: '#services' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { label: 'Our Products', href: '#portfolio' },
+      { label: 'Services', href: '#services' },
       { label: 'Industries', href: '#industries' },
       { label: 'Technology Stack', href: '#technologies' },
       { label: 'Process', href: '#process' },
@@ -55,7 +55,7 @@ export function Footer() {
               </span>
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
-              Hyderabad-based technology company. In-house products: LuxeHome and MyMentor. Plus
+              Hyderabad-based technology company. We provide mobile app solutions, plus
               founder-led Oracle and high-tech consulting.
             </p>
             <div className="mt-6 flex gap-3">

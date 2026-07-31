@@ -64,8 +64,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.16 }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg"
           >
-            Based in Hyderabad. Our in-house products — LuxeHome and MyMentor — are live, alongside
-            founder-led Oracle and high-tech consulting.
+            Based in Hyderabad. We provide mobile app solutions — plus founder-led Oracle and
+            high-tech consulting.
           </motion.p>
 
           <motion.div

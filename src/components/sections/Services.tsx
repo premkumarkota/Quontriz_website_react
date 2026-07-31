@@ -9,9 +9,9 @@ export function Services() {
     <section id="services" className="section-pad bg-slate-50/80 dark:bg-brand-950/40">
       <Container>
         <SectionHeading
-          eyebrow="Products & Services"
-          title="Two products live. Consulting that grows with you."
-          description="We’re starting with LuxeHome and MyMentor, plus focused Oracle and high-tech advisory for early partners."
+          eyebrow="Services"
+          title="We provide mobile app solutions"
+          description="End-to-end mobile development for iOS and Android, plus Oracle and high-tech consulting for teams that need more than an app."
         />
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">

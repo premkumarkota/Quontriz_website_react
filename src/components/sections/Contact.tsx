@@ -20,7 +20,7 @@ export function Contact() {
         <SectionHeading
           eyebrow="Contact"
           title="Talk to the founders"
-          description="Ask about LuxeHome, MyMentor, or early consulting help — we typically reply within one business day."
+          description="Ask about mobile app solutions or consulting help — we typically reply within one business day."
         />
 
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">

@@ -5,7 +5,6 @@ import { Hero } from './components/sections/Hero'
 import { About } from './components/sections/About'
 import { Services } from './components/sections/Services'
 import { Industries } from './components/sections/Industries'
-import { Portfolio } from './components/sections/Portfolio'
 import { WhyChooseUs } from './components/sections/WhyChooseUs'
 import { Process } from './components/sections/Process'
 import { Technologies } from './components/sections/Technologies'
@@ -30,7 +29,6 @@ function App() {
         <About />
         <Services />
         <Industries />
-        <Portfolio />
         <WhyChooseUs />
         <Process />
         <Technologies />

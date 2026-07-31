@@ -1,14 +1,13 @@
 import {
-  Armchair,
   Brain,
   Cloud,
   Cpu,
-  GraduationCap,
   Layers,
   LineChart,
   Package,
   Rocket,
   ShieldCheck,
+  Smartphone,
   Sparkles,
   Users,
   Workflow,
@@ -20,23 +19,22 @@ export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Industries', href: '#industries' },
-  { label: 'Products', href: '#portfolio' },
   { label: 'Careers', href: '#careers' },
   { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export const heroStats = [
-  { value: 2, suffix: '', label: 'In-House Products' },
-  { value: 4, suffix: '', label: 'Apps Across Products' },
   { value: 1, suffix: '', label: 'Hyderabad HQ' },
-  { value: 100, suffix: '%', label: 'Builder Energy' },
+  { value: 100, suffix: '%', label: 'Mobile-First Delivery' },
+  { value: 8, suffix: '', label: 'Core Services' },
+  { value: 100, suffix: '%', label: 'Founder-Led' },
 ]
 
 export const missionPoints = [
-  'Ship useful products people can buy, rent, learn, and work with — starting with LuxeHome and MyMentor.',
+  'Deliver high-quality mobile app solutions for iOS and Android.',
   'Stay close to real customer workflows, not slide decks.',
-  'Ship small, learn fast, and grow with our first users and partners.',
+  'Ship small, learn fast, and grow with our partners.',
   'Keep consulting honest, hands-on, and founder-led.',
 ]
 
@@ -51,11 +49,11 @@ export const coreValues = [
   },
   {
     title: 'Craft',
-    description: 'Every product feature should feel useful, clear, and worth someone’s time.',
+    description: 'Every app feature should feel useful, clear, and worth someone’s time.',
   },
   {
     title: 'Partnership',
-    description: 'Early customers and partners shape the roadmap with us.',
+    description: 'Customers and partners shape the roadmap with us.',
   },
 ]
 
@@ -66,32 +64,24 @@ export const services: {
   points: string[]
 }[] = [
   {
-    icon: Armchair,
-    title: 'LuxeHome',
+    icon: Smartphone,
+    title: 'Mobile App Solutions',
     description:
-      'A single-brand premium furniture platform to buy, rent, and refurbish furniture through one mobile ecosystem — catalog by branch, orders, monthly rentals, and at-home refurbishment.',
-    points: [
-      'Customer App · Technician App · Flutter Web Admin',
-      'Real-time orders & rental lifecycle',
-      'One FastAPI backend — full service loop owned in-house',
-    ],
+      'End-to-end mobile app design and development for iOS and Android — from idea to launch and ongoing support.',
+    points: ['Flutter / native-ready delivery', 'Customer & field apps', 'App Store & Play Store release'],
   },
   {
-    icon: GraduationCap,
-    title: 'MyMentor',
+    icon: Workflow,
+    title: 'Custom App Engineering',
     description:
-      'A student and teacher connecting app for doubt resolution, video lessons, learning content, quizzes, and AI-guided study planning.',
-    points: [
-      'MyMentor App for Students & Teachers',
-      'Video lessons & structured content',
-      'Quizzes + AI study planner',
-    ],
+      'Full-stack builds with Flutter frontends and robust backends — owned platforms without third-party lock-in.',
+    points: ['Mobile + web admin panels', 'REST APIs & integrations', 'Secure cloud backends'],
   },
   {
     icon: Cloud,
     title: 'Oracle Fusion Cloud Advisory',
     description:
-      'Hands-on guidance for teams exploring Fusion Cloud — assessments, roadmaps, and implementation support as we grow.',
+      'Hands-on guidance for teams exploring Fusion Cloud — assessments, roadmaps, and implementation support.',
     points: ['Discovery workshops', 'Cloud readiness reviews', 'Pilot-friendly engagements'],
   },
   {
@@ -105,7 +95,7 @@ export const services: {
     icon: Cpu,
     title: 'Semiconductor & High-Tech Consulting',
     description:
-      'Early-stage consulting for fab-adjacent and electronics manufacturers modernizing planning and supply chain processes.',
+      'Consulting for fab-adjacent and electronics manufacturers modernizing planning and supply chain processes.',
     points: ['Process discovery', 'ERP fit assessment', 'Integration scoping'],
   },
   {
@@ -116,114 +106,68 @@ export const services: {
     points: ['90-day roadmaps', 'Automation candidates', 'Legacy system review'],
   },
   {
-    icon: Workflow,
-    title: 'Custom Product Engineering',
+    icon: Package,
+    title: 'UI/UX for Mobile',
     description:
-      'Flutter, FastAPI, and full-stack builds for teams that want owned platforms — the same stack we use for LuxeHome and MyMentor.',
-    points: ['Mobile + web apps', 'Backend APIs', 'Admin panels'],
+      'Clean, conversion-focused mobile experiences — wireframes, prototypes, and production-ready UI systems.',
+    points: ['User flows', 'Design systems', 'Handoff-ready screens'],
   },
   {
     icon: Brain,
-    title: 'AI Features for Products',
+    title: 'AI Features in Apps',
     description:
-      'Practical AI add-ons — like MyMentor’s study planner — scoped to real user workflows.',
+      'Practical AI add-ons scoped to real user workflows — planners, assistants, and intelligent automation.',
     points: ['Use-case workshops', 'Prototype demos', 'Production-ready features'],
   },
 ]
 
 export const industries = [
-  { name: 'Furniture & Lifestyle', description: 'Buy, rent, and refurbish experiences via LuxeHome.' },
-  { name: 'Education & EdTech', description: 'Student–teacher learning loops via MyMentor.' },
-  { name: 'Retail & Distribution', description: 'Branch catalog, stock, and fulfillment ops.' },
+  { name: 'Retail & Distribution', description: 'Customer and ops mobile apps for branches and field teams.' },
+  { name: 'Education & EdTech', description: 'Learning and engagement apps for students and teachers.' },
+  { name: 'Healthcare', description: 'Secure mobile experiences for care and operations teams.' },
   { name: 'Semiconductor', description: 'Where our Oracle practice goes deep.' },
   { name: 'Electronics Manufacturing', description: 'OEM / EMS process complexity.' },
   { name: 'High-Tech Manufacturing', description: 'Product + process heavy environments.' },
   { name: 'Automotive Components', description: 'Quality and traceability pressure.' },
   { name: 'Industrial Manufacturing', description: 'ERP modernization journeys.' },
-  { name: 'Healthcare Manufacturing', description: 'Regulated production contexts.' },
-]
-
-export const portfolio = [
-  {
-    client: 'QUONTRIZ',
-    industry: 'Furniture · In-House',
-    title: 'LuxeHome',
-    description:
-      'A single-brand premium furniture platform that lets customers buy, rent, and refurbish furniture through one mobile app — browse by branch, place buy orders, start monthly rentals, and request at-home refurbishment with photos and issue details.',
-    image:
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80',
-    apps: [
-      'LuxeHome Customer App',
-      'LuxeHome Technician App',
-      'Flutter Web Admin Panel',
-    ],
-    technologies: ['Flutter', 'Flutter Web', 'FastAPI', 'PostgreSQL'],
-    results: [
-      'Orders and rentals tracked in real time from confirmation through delivery or subscription lifecycle',
-      'Refurbishment workflow: admins accept requests, schedule visits, and assign technicians by specialty and branch',
-      'Technician app: job list, address & photos, one-tap maps, start/complete with before/after uploads',
-      'Admin Panel (Super Admin + Branch Admin): catalog, stock, locations, workforce, and finance',
-      'One FastAPI backend — no third-party vendors — full customer-to-technician loop owned in-house',
-    ],
-    before: 'Fragmented buy / rent / service journeys',
-    after: 'One owned platform from customer to technician',
-  },
-  {
-    client: 'QUONTRIZ',
-    industry: 'EdTech · In-House',
-    title: 'MyMentor',
-    description:
-      'A student and teacher connecting app that helps students resolve doubts, access video lessons and learning content, take quizzes, and plan studies with an AI planner.',
-    image:
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
-    apps: ['MyMentor App — Students & Teachers'],
-    technologies: ['Flutter', 'AI Planner', 'Video Lessons', 'Quizzes'],
-    results: [
-      'Connect students and teachers for doubt resolution',
-      'Video lessons and structured learning content',
-      'Quizzes to reinforce understanding',
-      'AI planner to guide study plans',
-    ],
-    before: 'Scattered tutors, content, and study plans',
-    after: 'One app for doubts, lessons, quizzes & planning',
-  },
+  { name: 'Logistics', description: 'Tracking, scheduling, and field workforce apps.' },
 ]
 
 export const whyChooseUs = [
   {
-    icon: Rocket,
-    title: 'Brand New, Fully Focused',
-    description: 'Based in Hyderabad — focused on shipping products and partnering closely with customers.',
+    icon: Smartphone,
+    title: 'Mobile App Specialists',
+    description: 'We provide mobile app solutions — built for real users, real devices, and real business outcomes.',
   },
   {
-    icon: Package,
-    title: 'Two Real Products Already',
-    description: 'LuxeHome and MyMentor are live in-house products across mobile and admin experiences.',
+    icon: Rocket,
+    title: 'Focused Delivery',
+    description: 'Based in Hyderabad — focused on shipping apps and partnering closely with customers.',
   },
   {
     icon: Users,
     title: 'Founder-Led Delivery',
-    description: 'You work directly with the people building the company and the products.',
+    description: 'You work directly with the people building the company and your solution.',
   },
   {
     icon: LineChart,
     title: 'Full-Stack Ownership',
-    description: 'From Flutter apps to FastAPI backends — we own the loop end to end, like LuxeHome.',
+    description: 'From Flutter apps to FastAPI backends — we own the loop end to end.',
   },
   {
     icon: Sparkles,
     title: 'Build-With-You Mindset',
-    description: 'Early partners influence roadmap priorities and get white-glove attention.',
+    description: 'Partners influence roadmap priorities and get white-glove attention.',
   },
   {
     icon: ShieldCheck,
     title: 'Secure by Default',
-    description: 'Even as a young company, we treat access, data, and production systems carefully.',
+    description: 'We treat access, data, and production systems carefully from day one.',
   },
 ]
 
 export const trustPoints = [
-  { label: 'LuxeHome + MyMentor' },
+  { label: 'Mobile App Solutions' },
   { label: 'Hyderabad HQ · Gachibowli' },
   { label: 'Flutter + FastAPI Stack' },
   { label: 'Founder-Led Engagements' },
@@ -235,9 +179,9 @@ export const trustPoints = [
 
 export const processSteps = [
   { step: '01', title: 'Discovery', description: 'A short call to understand your goals and users.' },
-  { step: '02', title: 'Scoping', description: 'Define a small, useful first engagement or pilot.' },
+  { step: '02', title: 'Scoping', description: 'Define a small, useful first engagement or MVP.' },
   { step: '03', title: 'Design', description: 'Sketch the approach with clear success criteria.' },
-  { step: '04', title: 'Build', description: 'Ship product features or consulting deliverables.' },
+  { step: '04', title: 'Build', description: 'Ship mobile app features or consulting deliverables.' },
   { step: '05', title: 'Validate', description: 'Test with real users and refine quickly.' },
   { step: '06', title: 'Launch', description: 'Go live in a controlled, low-risk way.' },
   { step: '07', title: 'Iterate', description: 'Keep improving with feedback as we grow together.' },
@@ -267,11 +211,11 @@ export const technologies = [
 export const testimonials = [
   {
     name: 'Venkata Sai Reddy',
-    company: 'Sri Lakshmi Furnishings',
+    company: 'Sri Lakshmi Retail',
     position: 'Operations Manager',
     rating: 5,
     quote:
-      'LuxeHome’s buy–rent–refurbish flow in one app is exactly what our Guntur branch team needed. The technician assignment by specialty is very practical.',
+      'QUONTRIZ delivered a clean mobile app for our branch team. Clear communication, fast iterations, and a launch we could trust.',
     photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
   },
   {
@@ -280,27 +224,27 @@ export const testimonials = [
     position: 'Academic Coordinator',
     rating: 5,
     quote:
-      'MyMentor makes it easy for our Vijayawada students to clear doubts with teachers, watch lessons, and follow the AI study planner.',
+      'They understood our mobile-first needs quickly and built an app experience our users actually enjoy using.',
     photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
   },
   {
     name: 'Srinivas Naidu',
-    company: 'Vizag Home Styles',
+    company: 'Vizag Ops Collective',
     position: 'Branch Head',
     rating: 5,
     quote:
-      'We liked that QUONTRIZ owns the full stack — Customer app, Technician app, Admin panel, and backend. Clear ownership, clear delivery.',
+      'Full-stack ownership from app to backend made delivery simple. Clear ownership, clear timelines, solid result.',
     photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
   },
 ]
 
 export const statistics = [
-  { value: 2, suffix: '', label: 'In-House Products' },
-  { value: 4, suffix: '', label: 'Apps Across Products' },
+  { value: 100, suffix: '%', label: 'Mobile-First Focus' },
   { value: 8, suffix: '', label: 'Services Offered' },
   { value: 9, suffix: '', label: 'Industries We’re Targeting' },
   { value: 1, suffix: '', label: 'HQ · Gachibowli' },
   { value: 100, suffix: '%', label: 'Founder-Led' },
+  { value: 24, suffix: '/7', label: 'Support Mindset' },
 ]
 
 export const careers = [
@@ -340,20 +284,20 @@ export const blogPosts = [
       'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80',
   },
   {
-    title: 'Meet LuxeHome: Buy, Rent & Refurbish in One App',
-    category: 'Products',
+    title: 'How We Approach Mobile App Solutions',
+    category: 'Mobile',
     date: 'Jul 24, 2026',
     readingTime: '5 min read',
     image:
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1000&q=80',
   },
   {
-    title: 'Inside MyMentor: Doubts, Lessons, Quizzes & AI Planning',
-    category: 'Products',
+    title: 'Flutter for Enterprise-Ready Mobile Delivery',
+    category: 'Engineering',
     date: 'Jul 30, 2026',
     readingTime: '4 min read',
     image:
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1000&q=80',
   },
 ]
 
@@ -369,11 +313,11 @@ export const offices = [
 export const contactEmail = 'support@quontriz.com'
 
 export const serviceOptions = [
-  'LuxeHome',
-  'MyMentor',
+  'Mobile App Solutions',
+  'Custom App Engineering',
   'Oracle Fusion Cloud Advisory',
   'Oracle EBS Support',
-  'Custom Product Engineering',
+  'UI/UX for Mobile',
   'Digital Transformation Starter',
   'Other',
 ]

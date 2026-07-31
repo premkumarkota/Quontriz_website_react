@@ -10,8 +10,8 @@ export function About() {
       <Container>
         <SectionHeading
           eyebrow="About Us"
-          title="Building products and consulting for high-tech teams"
-          description="QUONTRIZ Technologies is a Hyderabad-based company focused on in-house products, Oracle ERP, semiconductor, and high-tech manufacturing solutions."
+          title="Building mobile apps and ERP consulting for modern teams"
+          description="QUONTRIZ Technologies is a Hyderabad-based company focused on mobile app solutions, Oracle ERP, semiconductor, and high-tech manufacturing consulting."
           align="left"
         />
 
@@ -28,7 +28,7 @@ export function About() {
             </h3>
             <p className="mt-3 text-slate-600 leading-relaxed dark:text-slate-300">
               To grow into a trusted technology partner for semiconductor and high-tech teams —
-              starting with useful products and honest consulting, not inflated claims.
+              starting with useful mobile apps and honest consulting, not inflated claims.
             </p>
           </motion.div>
 

@@ -11,7 +11,7 @@ export function Testimonials() {
         <SectionHeading
           eyebrow="Testimonials"
           title="What people are saying"
-          description="Feedback from partners and users exploring LuxeHome, MyMentor, and our consulting work."
+          description="Feedback from partners exploring our mobile app solutions and consulting work."
         />
 
         <div className="grid gap-6 lg:grid-cols-3">

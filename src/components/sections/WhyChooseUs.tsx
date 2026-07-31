@@ -11,7 +11,7 @@ export function WhyChooseUs() {
         <SectionHeading
           eyebrow="Why Choose Us"
           title="Why work with us at QUONTRIZ"
-          description="Direct access to founders, honest scoping, and products built for real furniture retail and learning workflows."
+          description="Direct access to founders, honest scoping, and mobile app solutions built for real users."
         />
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
