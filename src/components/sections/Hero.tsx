@@ -74,11 +74,11 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.24 }}
             className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
-            <Button href="#contact" className="min-w-[200px]">
+            <Button href="#contact" className="w-full min-w-0 sm:w-auto sm:min-w-[200px]">
               Schedule Consultation
               <ArrowRight size={16} />
             </Button>
-            <Button href="#services" variant="ghost" className="min-w-[180px]">
+            <Button href="#services" variant="ghost" className="w-full min-w-0 sm:w-auto sm:min-w-[180px]">
               <Play size={16} />
               View Services
             </Button>
