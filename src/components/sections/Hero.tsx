@@ -4,7 +4,7 @@ import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { PhoneArtifact } from '../ui/PhoneArtifact'
 
-const trustStrip = ['Flutter + FastAPI', 'Founder-led', 'Gachibowli, Hyderabad', 'Oracle practice']
+const trustStrip = ['Oracle Fusion + EBS', 'Founder-led', 'Gachibowli, Hyderabad', 'Flutter + FastAPI']
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -36,24 +36,24 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-signal" />
             </span>
-            Mobile app studio · Hyderabad
+            Oracle ERP · high-tech consulting · Hyderabad
           </motion.p>
 
           <motion.h1
             {...rise(0.08)}
             className="mt-6 text-balance font-display text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-5xl lg:text-[3.6rem] dark:text-white"
           >
-            We build mobile apps people rely on&nbsp;— and the{' '}
-            <span className="text-signal">Oracle</span> systems behind them.
+            We build the <span className="text-signal">Oracle</span> ERP systems
+            high-tech enterprises run on.
           </motion.h1>
 
           <motion.p
             {...rise(0.16)}
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted dark:text-slate-300"
           >
-            QUONTRIZ Technologies is a founder-led studio in Hyderabad. We design and ship iOS and
-            Android apps end to end — and bring hands-on Oracle ERP and high-tech consulting to the
-            enterprises that run on them.
+            QUONTRIZ Technologies is a founder-led firm in Hyderabad. We implement and modernize
+            Oracle Fusion Cloud and E-Business Suite — and build the mobile apps that extend them
+            to the field.
           </motion.p>
 
           <motion.div {...rise(0.24)} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
