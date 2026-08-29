@@ -1,5 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Bell, Check, Home, LayoutGrid, MapPin, User } from 'lucide-react'
+import lockup from '../../assets/logo/quontriz-lockup.png'
+import lockupWhite from '../../assets/logo/quontriz-lockup-white.png'
 
 const rows = [
   { label: 'Route sync', meta: 'Gachibowli · 4 stops', done: true },
@@ -72,7 +74,20 @@ export function PhoneArtifact() {
             {/* status row */}
             <div className="flex items-center justify-between font-mono text-[0.65rem] text-muted dark:text-slate-400">
               <span>9:41</span>
-              <span className="tracking-tight">QUONTRIZ · Field Ops</span>
+              <span className="flex items-center gap-1" aria-hidden="true">
+                <span className="h-1 w-1 rounded-full bg-signal" />
+                <span className="h-1 w-1 rounded-full bg-signal" />
+                <span className="h-1 w-1 rounded-full bg-muted/40" />
+              </span>
+            </div>
+
+            {/* app bar — brand lockup */}
+            <div className="mt-3 flex items-center justify-between border-b border-hairline pb-3 dark:border-white/10">
+              <img src={lockup} alt="QUONTRIZ Technologies" className="h-3.5 w-auto dark:hidden" />
+              <img src={lockupWhite} alt="" aria-hidden="true" className="hidden h-3.5 w-auto dark:block" />
+              <span className="font-mono text-[0.55rem] uppercase tracking-[0.16em] text-muted dark:text-slate-400">
+                Field Ops
+              </span>
             </div>
 
             {/* progress card */}

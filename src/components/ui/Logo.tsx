@@ -1,6 +1,6 @@
 import { clsx } from 'clsx'
-import wordmark from '../../assets/logo/quontriz-wordmark.png'
-import wordmarkOnDark from '../../assets/logo/quontriz-wordmark-white.png'
+import lockup from '../../assets/logo/quontriz-lockup.png'
+import lockupOnDark from '../../assets/logo/quontriz-lockup-white.png'
 
 export function Logo({
   className,
@@ -11,10 +11,10 @@ export function Logo({
 }) {
   return (
     <img
-      src={inverted ? wordmarkOnDark : wordmark}
-        alt="QUONTRIZ Technologies"
+      src={inverted ? lockupOnDark : lockup}
+      alt="QUONTRIZ Technologies"
       className={clsx(
-        'h-8 w-auto max-w-[160px] object-contain object-left sm:h-9 sm:max-w-[200px] lg:h-10 lg:max-w-[220px]',
+        'h-7 w-auto max-w-[180px] object-contain object-left sm:h-8 sm:max-w-[210px] lg:h-9 lg:max-w-[240px]',
         className,
       )}
     />
