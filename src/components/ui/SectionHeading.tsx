@@ -28,17 +28,25 @@ export function SectionHeading({
       {eyebrow && (
         <p
           className={clsx(
-            'mb-3 text-xs font-semibold uppercase tracking-[0.22em]',
-            light ? 'text-brand-200' : 'text-brand-600 dark:text-brand-300',
+            'mb-4 inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.2em]',
+            align === 'center' && 'justify-center',
+            light ? 'text-brand-200' : 'text-signal dark:text-brand-300',
           )}
         >
+          <span
+            className={clsx(
+              'h-px w-6',
+              light ? 'bg-brand-200/60' : 'bg-signal/40 dark:bg-brand-300/40',
+            )}
+            aria-hidden="true"
+          />
           {eyebrow}
         </p>
       )}
       <h2
         className={clsx(
-          'font-display text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl',
-          light ? 'text-white' : 'text-slate-900 dark:text-white',
+          'font-display text-[1.9rem] font-bold leading-[1.08] tracking-[-0.02em] sm:text-4xl lg:text-[2.9rem]',
+          light ? 'text-white' : 'text-ink dark:text-white',
         )}
       >
         {title}
@@ -46,8 +54,8 @@ export function SectionHeading({
       {description && (
         <p
           className={clsx(
-            'mt-4 text-base leading-relaxed sm:text-lg',
-            light ? 'text-slate-200' : 'text-slate-600 dark:text-slate-300',
+            'mt-5 text-base leading-relaxed sm:text-lg',
+            light ? 'text-slate-200' : 'text-muted dark:text-slate-300',
           )}
         >
           {description}

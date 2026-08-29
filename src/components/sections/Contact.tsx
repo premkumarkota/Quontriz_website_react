@@ -148,9 +148,9 @@ export function Contact() {
 
             <div className="space-y-4">
               {offices.map((office) => (
-                <div
+                <address
                   key={office.city}
-                  className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-5 dark:border-white/10 dark:bg-white/5"
+                  className="not-italic rounded-2xl border border-slate-200/80 bg-slate-50/80 p-5 dark:border-white/10 dark:bg-white/5"
                 >
                   <p className="font-display font-bold text-slate-900 dark:text-white">
                     {office.city} HQ
@@ -159,7 +159,7 @@ export function Contact() {
                     {office.address}
                   </p>
                   <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">{office.hours}</p>
-                </div>
+                </address>
               ))}
             </div>
           </motion.aside>

@@ -26,6 +26,15 @@
             "value": "no-cache"
           }
         ]
+      },
+      {
+        "source": "/@(og-image.png|apple-touch-icon.png|logo.png|favicon.svg|favicon-32.png|robots.txt|sitemap.xml|site.webmanifest)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400"
+          }
+        ]
       }
     ]
   }

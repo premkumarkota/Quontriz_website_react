@@ -1,16 +1,18 @@
 import { motion } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
+import { Check } from 'lucide-react'
 import { trustPoints, whyChooseUs } from '../../data/content'
 import { Container } from '../ui/Container'
 import { SectionHeading } from '../ui/SectionHeading'
 
+const ease = [0.22, 1, 0.36, 1] as const
+
 export function WhyChooseUs() {
   return (
-    <section id="why-us" className="section-pad">
+    <section id="why-us" className="section-pad bg-mist dark:bg-brand-950/40">
       <Container>
         <SectionHeading
-          eyebrow="Why Choose Us"
-          title="Why work with us at QUONTRIZ"
+          eyebrow="Why choose us"
+          title="What it’s like to work with QUONTRIZ"
           description="Direct access to founders, honest scoping, and mobile app solutions built for real users."
         />
 
@@ -22,18 +24,17 @@ export function WhyChooseUs() {
                 key={item.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                whileHover={{ y: -4 }}
-                className="rounded-3xl border border-slate-200/80 bg-white p-7 dark:border-white/10 dark:bg-white/5"
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ delay: (i % 3) * 0.06, duration: 0.5, ease }}
+                className="tile tile-hover group p-7"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-300">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-signal transition-colors duration-300 group-hover:bg-signal group-hover:text-white dark:bg-white/10 dark:text-brand-300">
                   <Icon size={20} />
                 </div>
-                <h3 className="mt-4 font-display text-lg font-bold text-slate-900 dark:text-white">
+                <h3 className="mt-4 font-display text-lg font-bold tracking-tight text-ink dark:text-white">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                <p className="mt-2 text-sm leading-relaxed text-muted dark:text-slate-300">
                   {item.description}
                 </p>
               </motion.div>
@@ -41,20 +42,18 @@ export function WhyChooseUs() {
           })}
         </div>
 
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {trustPoints.map((point, i) => (
             <motion.div
               key={point.label}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.04 }}
-              className="flex items-center gap-3 rounded-2xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 dark:border-white/10 dark:bg-white/5"
+              transition={{ delay: i * 0.04, duration: 0.4 }}
+              className="flex items-center gap-2.5 rounded-xl border border-hairline bg-white px-4 py-3 dark:border-white/10 dark:bg-white/[0.03]"
             >
-              <CheckCircle2 className="shrink-0 text-brand-600 dark:text-brand-400" size={18} />
-              <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                {point.label}
-              </span>
+              <Check className="shrink-0 text-signal dark:text-brand-400" size={16} strokeWidth={3} />
+              <span className="font-mono text-xs text-muted dark:text-slate-300">{point.label}</span>
             </motion.div>
           ))}
         </div>

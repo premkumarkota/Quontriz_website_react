@@ -5,10 +5,11 @@ type Variant = 'primary' | 'secondary' | 'ghost' | 'outline'
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-gradient-to-r from-brand-700 to-brand-500 text-white shadow-lg shadow-brand-700/25 hover:shadow-brand-600/35 hover:brightness-105',
+    'bg-signal text-white shadow-[0_1px_2px_rgba(11,27,51,0.12),0_10px_24px_-12px_rgba(26,79,227,0.55)] hover:bg-brand-700 hover:-translate-y-0.5 active:translate-y-0',
   secondary:
-    'bg-white text-brand-800 border border-slate-200 shadow-sm hover:border-brand-300 hover:bg-brand-50 dark:bg-white/10 dark:text-white dark:border-white/15 dark:hover:bg-white/15',
-  ghost: 'bg-transparent text-white border border-white/40 hover:bg-white/10',
+    'bg-white text-ink border border-hairline shadow-[0_1px_2px_rgba(11,27,51,0.05)] hover:border-brand-300 hover:text-brand-700 hover:-translate-y-0.5 dark:bg-white/10 dark:text-white dark:border-white/15 dark:hover:bg-white/15',
+  ghost:
+    'bg-transparent text-ink border border-hairline hover:border-brand-300 hover:bg-mist hover:-translate-y-0.5 dark:text-white dark:border-white/20 dark:hover:bg-white/10',
   outline:
     'border border-brand-600/30 text-brand-700 hover:bg-brand-50 dark:text-brand-200 dark:border-brand-400/30 dark:hover:bg-white/5',
 }
@@ -28,7 +29,7 @@ type ButtonAsLink = CommonProps &
 export function Button(props: ButtonAsButton | ButtonAsLink) {
   const { children, variant = 'primary', className } = props
   const classes = clsx(
-    'inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-brand-950',
+    'inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-paper dark:focus-visible:ring-offset-brand-950',
     variants[variant],
     className,
   )

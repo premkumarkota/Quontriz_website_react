@@ -3,6 +3,8 @@ import { industries } from '../../data/content'
 import { Container } from '../ui/Container'
 import { SectionHeading } from '../ui/SectionHeading'
 
+const ease = [0.22, 1, 0.36, 1] as const
+
 export function Industries() {
   return (
     <section id="industries" className="section-pad">
@@ -17,23 +19,19 @@ export function Industries() {
           {industries.map((industry, i) => (
             <motion.div
               key={industry.name}
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.04 }}
-              whileHover={{ scale: 1.02 }}
-              className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-white/10 dark:bg-white/5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ delay: (i % 3) * 0.06, duration: 0.5, ease }}
+              className="tile tile-hover group relative p-6"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-600/0 to-brand-500/0 transition duration-300 group-hover:from-brand-600/5 group-hover:to-brand-500/10" />
-              <div className="relative">
-                <div className="mb-4 h-1 w-10 rounded-full bg-gradient-to-r from-brand-700 to-brand-400" />
-                <h3 className="font-display text-lg font-bold text-slate-900 dark:text-white">
-                  {industry.name}
-                </h3>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                  {industry.description}
-                </p>
-              </div>
+              <div className="mb-4 h-1 w-8 rounded-full bg-brand-200 transition-all duration-300 group-hover:w-12 group-hover:bg-signal" />
+              <h3 className="font-display text-lg font-bold tracking-tight text-ink dark:text-white">
+                {industry.name}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted dark:text-slate-300">
+                {industry.description}
+              </p>
             </motion.div>
           ))}
         </div>

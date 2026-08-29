@@ -1,106 +1,88 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Play } from 'lucide-react'
-import { useRef } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
-import { AnimatedCounter } from '../ui/AnimatedCounter'
-import { heroStats } from '../../data/content'
+import { PhoneArtifact } from '../ui/PhoneArtifact'
+
+const trustStrip = ['Flutter + FastAPI', 'Founder-led', 'Gachibowli, Hyderabad', 'Oracle practice']
 
 export function Hero() {
-  const ref = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], [0, 140])
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.35])
+  const reduce = useReducedMotion()
+
+  const rise = (delay: number) =>
+    reduce
+      ? { initial: { opacity: 1 }, animate: { opacity: 1 } }
+      : {
+          initial: { opacity: 0, y: 22 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+        }
 
   return (
-    <section
-      id="home"
-      ref={ref}
-      className="relative min-h-[100svh] overflow-hidden"
-      aria-label="Hero"
-    >
-      <motion.div style={{ y }} className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2000&q=80"
-          alt="Corporate leadership team collaborating in a modern office"
-          className="h-full w-full object-cover"
-          fetchPriority="high"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-900/85 to-brand-800/55" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(47,106,247,0.35),transparent_50%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-brand-950/20" />
-      </motion.div>
+    <section id="home" className="relative overflow-hidden" aria-label="QUONTRIZ Technologies">
+      {/* ambient background */}
+      <div aria-hidden="true" className="hairline-grid pointer-events-none absolute inset-0 opacity-70" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(60%_60%_at_70%_10%,rgba(26,79,227,0.08),transparent_70%)]"
+      />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-paper dark:to-brand-950" />
 
-      <Container className="relative flex min-h-[100svh] flex-col justify-center pt-28 pb-16">
-        <motion.div style={{ opacity }} className="max-w-3xl">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-5 font-display text-sm font-bold uppercase tracking-[0.28em] text-brand-200"
-          >
-            QUONTRIZ Technologies
+      <Container className="relative grid min-h-[100svh] items-center gap-12 pt-28 pb-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pt-24">
+        {/* left — copy */}
+        <div className="max-w-2xl">
+          <motion.p {...rise(0)} className="inline-flex items-center gap-2 rounded-full border border-hairline bg-white/70 px-3.5 py-1.5 font-mono text-[0.7rem] font-medium uppercase tracking-[0.16em] text-muted backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-signal" />
+            </span>
+            Mobile app studio · Hyderabad
           </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+            {...rise(0.08)}
+            className="mt-6 text-balance font-display text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-5xl lg:text-[3.6rem] dark:text-white"
           >
-            Building powerful{' '}
-            <span className="bg-gradient-to-r from-white via-brand-100 to-brand-300 bg-clip-text text-transparent">
-              ERP solutions
-            </span>{' '}
-            for high-tech enterprises
+            We build mobile apps people rely on&nbsp;— and the{' '}
+            <span className="text-signal">Oracle</span> systems behind them.
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.16 }}
-            className="mt-6 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg"
+            {...rise(0.16)}
+            className="mt-6 max-w-xl text-lg leading-relaxed text-muted dark:text-slate-300"
           >
-            Based in Hyderabad. We provide mobile app solutions — plus founder-led Oracle and
-            high-tech consulting.
+            QUONTRIZ Technologies is a founder-led studio in Hyderabad. We design and ship iOS and
+            Android apps end to end — and bring hands-on Oracle ERP and high-tech consulting to the
+            enterprises that run on them.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.24 }}
-            className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
-          >
-            <Button href="#contact" className="w-full min-w-0 sm:w-auto sm:min-w-[200px]">
-              Schedule Consultation
+          <motion.div {...rise(0.24)} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button href="#contact" className="w-full sm:w-auto">
+              Start a project
               <ArrowRight size={16} />
             </Button>
-            <Button href="#services" variant="ghost" className="w-full min-w-0 sm:w-auto sm:min-w-[180px]">
-              <Play size={16} />
-              View Services
+            <Button href="#services" variant="ghost" className="w-full sm:w-auto">
+              View services
             </Button>
           </motion.div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 gap-4 border-t border-white/15 pt-8 sm:grid-cols-4"
-        >
-          {heroStats.map((stat) => (
-            <AnimatedCounter
-              key={stat.label}
-              value={stat.value}
-              suffix={stat.suffix}
-              label={stat.label}
-              className="[&_p:first-child]:text-white [&_p:last-child]:text-slate-300"
-            />
-          ))}
-        </motion.div>
+          <motion.ul
+            {...rise(0.32)}
+            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-hairline pt-6 dark:border-white/10"
+          >
+            {trustStrip.map((item) => (
+              <li key={item} className="flex items-center gap-2 font-mono text-xs text-muted dark:text-slate-400">
+                <span className="h-1 w-1 rounded-full bg-brand-300" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </motion.ul>
+        </div>
+
+        {/* right — signature phone artifact */}
+        <div className="relative flex justify-center lg:justify-end">
+          <PhoneArtifact />
+        </div>
       </Container>
     </section>
   )

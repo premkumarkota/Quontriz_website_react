@@ -1,6 +1,7 @@
 import { Globe, Share2, MessageCircle, ExternalLink } from 'lucide-react'
 import { Container } from '../ui/Container'
 import { Button } from '../ui/Button'
+import { Logo } from '../ui/Logo'
 
 const socials = [
   { icon: Globe, label: 'Website' },
@@ -46,13 +47,8 @@ export function Footer() {
       <Container className="relative section-pad pb-10">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_repeat(3,1fr)]">
           <div>
-            <a href="#home" className="inline-flex items-center gap-2.5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-brand-400 text-sm font-extrabold text-white">
-                Q
-              </span>
-              <span className="font-display text-xl font-extrabold text-white">
-                QUONTRIZ Technologies
-              </span>
+            <a href="#home" className="inline-flex items-center" aria-label="QUONTRIZ Technologies home">
+              <Logo inverted />
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
               Hyderabad-based technology company. We provide mobile app solutions, plus

@@ -6,6 +6,7 @@ import { navLinks } from '../../data/content'
 import { useTheme } from '../../context/ThemeContext'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
+import { Logo } from '../ui/Logo'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -13,7 +14,7 @@ export function Navbar() {
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    const onScroll = () => setScrolled(window.scrollY > 16)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -31,46 +32,24 @@ export function Navbar() {
       className={clsx(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
         scrolled
-          ? 'border-b border-slate-200/70 bg-white/80 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-brand-950/80'
-          : 'bg-transparent',
+          ? 'border-b border-hairline bg-white/85 backdrop-blur-xl dark:border-white/10 dark:bg-brand-950/80'
+          : 'border-b border-transparent bg-transparent',
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-4 lg:h-20">
-        <a href="#home" className="group flex items-center gap-2.5" aria-label="QUONTRIZ Technologies home">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-700 to-brand-500 text-sm font-extrabold text-white shadow-md shadow-brand-700/30">
-            Q
-          </span>
-          <span
-            className={clsx(
-              'font-display text-lg font-extrabold tracking-tight transition-colors',
-              scrolled ? 'text-slate-900 dark:text-white' : 'text-white',
-            )}
-          >
-            QUONTRIZ
-            <span
-              className={clsx(
-                'ml-1 hidden font-semibold sm:inline',
-                scrolled ? 'text-brand-600 dark:text-brand-300' : 'text-brand-200',
-              )}
-            >
-              Technologies
-            </span>
-          </span>
+        <a href="#home" className="flex shrink-0 items-center" aria-label="QUONTRIZ home">
+          <Logo />
         </a>
 
-        <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={clsx(
-                'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-                scrolled
-                  ? 'text-slate-600 hover:bg-slate-100 hover:text-brand-700 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white'
-                  : 'text-white/85 hover:bg-white/10 hover:text-white',
-              )}
+              className="group relative rounded-lg px-3 py-2 text-sm font-medium text-muted transition-colors hover:text-ink dark:text-slate-300 dark:hover:text-white"
             >
               {link.label}
+              <span className="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px origin-left scale-x-0 bg-signal transition-transform duration-300 group-hover:scale-x-100" />
             </a>
           ))}
         </nav>
@@ -80,28 +59,18 @@ export function Navbar() {
             type="button"
             onClick={toggleTheme}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            className={clsx(
-              'rounded-xl p-2.5 transition-colors',
-              scrolled
-                ? 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10'
-                : 'text-white hover:bg-white/10',
-            )}
+            className="rounded-xl p-2.5 text-muted transition-colors hover:bg-mist hover:text-ink dark:text-slate-300 dark:hover:bg-white/10"
           >
             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
           </button>
 
           <Button href="#contact" className="hidden sm:inline-flex" variant="primary">
-            Get Started
+            Start a project
           </Button>
 
           <button
             type="button"
-            className={clsx(
-              'rounded-xl p-2.5 xl:hidden',
-              scrolled
-                ? 'text-slate-700 dark:text-white'
-                : 'text-white',
-            )}
+            className="rounded-xl p-2.5 text-ink xl:hidden dark:text-white"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -117,7 +86,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="border-t border-slate-200/70 bg-white/95 backdrop-blur-xl xl:hidden dark:border-white/10 dark:bg-brand-950/95"
+            className="border-t border-hairline bg-white/95 backdrop-blur-xl xl:hidden dark:border-white/10 dark:bg-brand-950/95"
           >
             <Container className="flex flex-col gap-1 py-4">
               {navLinks.map((link) => (
@@ -125,13 +94,13 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-medium text-slate-700 hover:bg-brand-50 dark:text-slate-200 dark:hover:bg-white/5"
+                  className="rounded-xl px-4 py-3 text-base font-medium text-ink hover:bg-mist dark:text-slate-200 dark:hover:bg-white/5"
                 >
                   {link.label}
                 </a>
               ))}
               <Button href="#contact" className="mt-2" onClick={() => setOpen(false)}>
-                Get Started
+                Start a project
               </Button>
             </Container>
           </motion.div>

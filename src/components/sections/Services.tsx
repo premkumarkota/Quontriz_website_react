@@ -4,14 +4,16 @@ import { services } from '../../data/content'
 import { Container } from '../ui/Container'
 import { SectionHeading } from '../ui/SectionHeading'
 
+const ease = [0.22, 1, 0.36, 1] as const
+
 export function Services() {
   return (
-    <section id="services" className="section-pad bg-slate-50/80 dark:bg-brand-950/40">
+    <section id="services" className="section-pad relative bg-mist dark:bg-brand-950/40">
       <Container>
         <SectionHeading
           eyebrow="Services"
-          title="We provide mobile app solutions"
-          description="End-to-end mobile development for iOS and Android, plus Oracle and high-tech consulting for teams that need more than an app."
+          title="Mobile app solutions, end to end"
+          description="Full-cycle mobile development for iOS and Android, plus Oracle and high-tech consulting for teams that need more than an app."
         />
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -20,37 +22,38 @@ export function Services() {
             return (
               <motion.article
                 key={service.title}
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 0, y: 26 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
-                transition={{ delay: (i % 3) * 0.05, duration: 0.5 }}
-                whileHover={{ y: -6 }}
-                className="group relative flex flex-col rounded-3xl border border-slate-200/80 bg-white p-7 shadow-[0_10px_40px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_24px_60px_rgba(11,61,145,0.12)] dark:border-white/10 dark:bg-white/5 dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
+                transition={{ delay: (i % 3) * 0.06, duration: 0.5, ease }}
+                className="tile tile-hover group relative flex flex-col overflow-hidden p-7"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-700 to-brand-500 text-white shadow-lg shadow-brand-700/20 transition-transform duration-300 group-hover:scale-110">
+                <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-signal transition-transform duration-300 group-hover:scale-x-100" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-signal transition-colors duration-300 group-hover:bg-signal group-hover:text-white dark:bg-white/10 dark:text-brand-300 dark:group-hover:bg-signal dark:group-hover:text-white">
                   <Icon size={22} aria-hidden />
                 </div>
-                <h3 className="mt-5 font-display text-xl font-bold text-slate-900 dark:text-white">
+                <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-ink dark:text-white">
                   {service.title}
                 </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted dark:text-slate-300">
                   {service.description}
                 </p>
-                <ul className="mt-4 space-y-1.5">
+                <ul className="mt-5 space-y-2 border-t border-hairline pt-4 dark:border-white/10">
                   {service.points.map((point) => (
                     <li
                       key={point}
-                      className="text-xs font-medium text-slate-500 dark:text-slate-400"
+                      className="flex items-center gap-2 font-mono text-xs text-muted dark:text-slate-400"
                     >
-                      · {point}
+                      <span className="h-1 w-1 rounded-full bg-brand-300" aria-hidden="true" />
+                      {point}
                     </li>
                   ))}
                 </ul>
                 <a
                   href="#contact"
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 transition group-hover:gap-2.5 dark:text-brand-300"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-signal transition-all group-hover:gap-2.5 dark:text-brand-300"
                 >
-                  Learn More
+                  Discuss this
                   <ArrowUpRight size={16} />
                 </a>
               </motion.article>

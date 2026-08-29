@@ -3,24 +3,31 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
-  --color-brand-50: #eef4ff;
-  --color-brand-100: #d9e6ff;
-  --color-brand-200: #bcd4ff;
-  --color-brand-300: #8eb8ff;
-  --color-brand-400: #5990ff;
-  --color-brand-500: #2f6af7;
+  /* Signal — single-accent corporate blue scale */
+  --color-brand-50: #eef3ff;
+  --color-brand-100: #dee9ff;
+  --color-brand-200: #c2d5ff;
+  --color-brand-300: #97b6ff;
+  --color-brand-400: #5e8cfb;
+  --color-brand-500: #3366f0;
   --color-brand-600: #1a4fe3;
-  --color-brand-700: #0b3d91;
-  --color-brand-800: #0a3278;
-  --color-brand-900: #0c2b5c;
-  --color-brand-950: #081a3a;
+  --color-brand-700: #123fba;
+  --color-brand-800: #0f3390;
+  --color-brand-900: #0a2a6b;
+  --color-brand-950: #0b1b33;
 
-  --color-surface: #f7f9fc;
-  --color-ink: #0f172a;
-  --color-muted: #64748b;
+  /* Named semantic tokens */
+  --color-ink: #0b1b33;
+  --color-signal: #1a4fe3;
+  --color-deep: #0a2a6b;
+  --color-paper: #ffffff;
+  --color-mist: #f4f7fb;
+  --color-hairline: #e4eaf2;
+  --color-muted: #5a6b85;
 }
 
 @layer base {
@@ -29,39 +36,73 @@
   }
 
   body {
-    @apply bg-white text-slate-900 font-sans antialiased;
+    @apply bg-paper text-ink font-sans antialiased;
     background-image:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(47, 106, 247, 0.08), transparent),
-      linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+      radial-gradient(ellipse 70% 40% at 50% -10%, rgba(26, 79, 227, 0.06), transparent 70%);
   }
 
   .dark body,
   html.dark body {
     @apply bg-brand-950 text-slate-100;
     background-image:
-      radial-gradient(ellipse 70% 40% at 50% -10%, rgba(47, 106, 247, 0.18), transparent),
-      linear-gradient(180deg, #081a3a 0%, #0a2548 100%);
+      radial-gradient(ellipse 70% 40% at 50% -10%, rgba(94, 140, 251, 0.14), transparent 70%);
   }
 
   ::selection {
-    @apply bg-brand-600 text-white;
+    @apply bg-signal text-white;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply border border-white/40 bg-white/70 shadow-[0_8px_32px_rgba(15,23,42,0.06)] backdrop-blur-xl;
+    @apply border border-hairline bg-white/80 shadow-[0_1px_2px_rgba(11,27,51,0.04),0_8px_28px_-12px_rgba(11,27,51,0.12)] backdrop-blur-xl;
   }
 
   .dark .glass {
     @apply border-white/10 bg-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.25)];
   }
 
-  .text-gradient {
-    @apply bg-gradient-to-r from-brand-700 via-brand-500 to-brand-600 bg-clip-text text-transparent;
+  /* App-tile surface — the repeating unit of the whole page */
+  .tile {
+    @apply rounded-2xl border border-hairline bg-white shadow-[0_1px_2px_rgba(11,27,51,0.04),0_10px_30px_-16px_rgba(11,27,51,0.14)] transition-all duration-300;
+  }
+
+  .dark .tile {
+    @apply border-white/10 bg-white/[0.03] shadow-[0_10px_30px_-16px_rgba(0,0,0,0.5)];
+  }
+
+  .tile-hover:hover {
+    @apply -translate-y-1 border-brand-200 shadow-[0_1px_2px_rgba(11,27,51,0.05),0_22px_44px_-20px_rgba(26,79,227,0.28)];
+  }
+
+  .dark .tile-hover:hover {
+    @apply border-brand-400/40;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted dark:text-slate-400;
   }
 
   .section-pad {
-    @apply py-16 sm:py-20 lg:py-28;
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+
+  .hairline-grid {
+    background-image:
+      linear-gradient(to right, rgba(11, 27, 51, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 27, 51, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .dark .hairline-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
