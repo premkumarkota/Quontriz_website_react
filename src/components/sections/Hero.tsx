@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
+import { Logo } from '../ui/Logo'
 import { PhoneArtifact } from '../ui/PhoneArtifact'
 
 const trustStrip = ['Oracle Fusion + EBS', 'Founder-led', 'Gachibowli, Hyderabad', 'Flutter + FastAPI']
@@ -31,25 +32,15 @@ export function Hero() {
       <Container className="relative grid min-h-[100svh] items-center gap-12 pt-28 pb-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pt-24">
         {/* left — copy */}
         <div className="max-w-2xl">
-          <motion.p {...rise(0)} className="inline-flex items-center gap-2 rounded-full border border-hairline bg-white/70 px-3.5 py-1.5 font-mono text-[0.7rem] font-medium uppercase tracking-[0.16em] text-muted backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-signal" />
-            </span>
-            Oracle ERP · high-tech consulting · Hyderabad
-          </motion.p>
+          <motion.div {...rise(0)}>
+            <Logo size="hero" />
+          </motion.div>
 
-          <motion.h1
-            {...rise(0.08)}
-            className="mt-6 text-balance font-display text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-5xl lg:text-[3.6rem] dark:text-white"
-          >
-            We build the <span className="text-signal">Oracle</span> ERP systems
-            high-tech enterprises run on.
-          </motion.h1>
+          <h1 className="sr-only">QUONTRIZ</h1>
 
           <motion.p
-            {...rise(0.16)}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-muted dark:text-slate-300"
+            {...rise(0.08)}
+            className="mt-8 max-w-xl text-lg leading-relaxed text-muted dark:text-slate-300 sm:text-xl"
           >
             QUONTRIZ Technologies is a founder-led firm in Hyderabad. We implement and modernize
             Oracle Fusion Cloud and E-Business Suite — and build the mobile apps that extend them
