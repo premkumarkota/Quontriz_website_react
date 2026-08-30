@@ -2,7 +2,6 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
-import { Logo } from '../ui/Logo'
 import { PhoneArtifact } from '../ui/PhoneArtifact'
 
 const trustStrip = ['Oracle Fusion + EBS', 'Founder-led', 'Gachibowli, Hyderabad', 'Flutter + FastAPI']
@@ -32,15 +31,11 @@ export function Hero() {
       <Container className="relative grid min-h-[100svh] items-center gap-12 pt-28 pb-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pt-24">
         {/* left — copy */}
         <div className="max-w-2xl">
-          <motion.div {...rise(0)}>
-            <Logo size="hero" />
-          </motion.div>
-
-          <h1 className="sr-only">QUONTRIZ</h1>
+          <h1 className="sr-only">QUONTRIZ Technologies</h1>
 
           <motion.p
-            {...rise(0.08)}
-            className="mt-8 max-w-xl text-lg leading-relaxed text-muted dark:text-slate-300 sm:text-xl"
+            {...rise(0)}
+            className="max-w-xl text-lg leading-relaxed text-muted dark:text-slate-300 sm:text-xl"
           >
             QUONTRIZ Technologies is a founder-led firm in Hyderabad. We implement and modernize
             Oracle Fusion Cloud and E-Business Suite — and build the mobile apps that extend them

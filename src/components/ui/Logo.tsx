@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
-import wordmark from '../../assets/logo/quontriz-wordmark.png'
-import wordmarkOnDark from '../../assets/logo/quontriz-wordmark-white.png'
-import { useTheme } from '../../context/ThemeContext'
+import qMark from '../../assets/logo/quontriz-q.svg'
+import wordmark from '../../assets/logo/quontriz-wordmark-2.png'
+import wordmarkWhite from '../../assets/logo/quontriz-wordmark-2-white.png'
 
 export function Logo({
   className,
@@ -12,18 +12,27 @@ export function Logo({
   inverted?: boolean
   size?: 'nav' | 'hero'
 }) {
-  const { theme } = useTheme()
-  const onDark = inverted || theme === 'dark'
+  // Hero keeps the standalone Q mark as its centerpiece.
+  if (size === 'hero') {
+    return (
+      <img
+        src={qMark}
+        alt="QUONTRIZ"
+        className={clsx(
+          'shrink-0 object-contain h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24',
+          className,
+        )}
+      />
+    )
+  }
 
+  // Header / footer use the full wordmark.
   return (
     <img
-      src={onDark ? wordmarkOnDark : wordmark}
+      src={inverted ? wordmarkWhite : wordmark}
       alt="QUONTRIZ"
       className={clsx(
-        'w-auto object-contain object-left',
-        size === 'hero'
-          ? 'h-12 max-w-[min(100%,22rem)] sm:h-16 sm:max-w-[28rem] lg:h-[4.75rem] lg:max-w-[34rem]'
-          : 'h-8 max-w-[168px] sm:h-9 sm:max-w-[200px] lg:h-10 lg:max-w-[228px]',
+        'shrink-0 object-contain object-left h-6 w-auto max-w-[170px] sm:h-7 sm:max-w-[195px]',
         className,
       )}
     />

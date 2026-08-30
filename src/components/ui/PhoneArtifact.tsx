@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Bell, Check, Home, LayoutGrid, MapPin, User } from 'lucide-react'
-import wordmark from '../../assets/logo/quontriz-wordmark.png'
-import wordmarkWhite from '../../assets/logo/quontriz-wordmark-white.png'
+import qMark from '../../assets/logo/quontriz-q.svg'
 
 const rows = [
   { label: 'Route sync', meta: 'Gachibowli · 4 stops', done: true },
@@ -83,8 +82,7 @@ export function PhoneArtifact() {
 
             {/* app bar — brand lockup */}
             <div className="mt-3 flex items-center justify-between border-b border-hairline pb-3 dark:border-white/10">
-              <img src={wordmark} alt="QUONTRIZ" className="h-4 w-auto dark:hidden" />
-              <img src={wordmarkWhite} alt="" aria-hidden="true" className="hidden h-4 w-auto dark:block" />
+              <img src={qMark} alt="QUONTRIZ" className="h-7 w-7 rounded-md" />
               <span className="font-mono text-[0.55rem] uppercase tracking-[0.16em] text-muted dark:text-slate-400">
                 Field Ops
               </span>
