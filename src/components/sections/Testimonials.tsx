@@ -4,50 +4,57 @@ import { testimonials } from '../../data/content'
 import { Container } from '../ui/Container'
 import { SectionHeading } from '../ui/SectionHeading'
 
+const ease = [0.22, 1, 0.36, 1] as const
+
 export function Testimonials() {
   return (
-    <section id="testimonials" className="section-pad bg-slate-50/80 dark:bg-brand-950/40">
+    <section id="testimonials" className="section-pad relative overflow-hidden">
       <Container>
         <SectionHeading
-          eyebrow="Testimonials"
-          title="What people are saying"
-          description="Feedback from partners exploring our mobile app solutions and consulting work."
+          kicker="Testimonials"
+          title="What partners are saying"
+          description="Feedback from teams exploring our mobile app solutions and consulting work."
         />
 
         <div className="grid gap-6 lg:grid-cols-3">
           {testimonials.map((item, i) => (
             <motion.figure
               key={item.name}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="flex h-full flex-col rounded-3xl border border-slate-200/80 bg-white p-7 dark:border-white/10 dark:bg-white/5"
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease }}
+              className="tile tile-hover group relative flex h-full flex-col p-8"
             >
-              <div className="flex gap-1" aria-label={`${item.rating} out of 5 stars`}>
+              {/* oversized quote mark */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-6 top-3 font-display text-7xl leading-none text-brand-100 transition-colors duration-300 group-hover:text-brand-200"
+              >
+                &rdquo;
+              </span>
+
+              <div className="flex gap-0.5" aria-label={`${item.rating} out of 5 stars`}>
                 {Array.from({ length: item.rating }).map((_, idx) => (
-                  <Star
-                    key={idx}
-                    size={16}
-                    className="fill-amber-400 text-amber-400"
-                    aria-hidden
-                  />
+                  <Star key={idx} size={15} className="fill-signal text-signal" aria-hidden />
                 ))}
               </div>
-              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                “{item.quote}”
+
+              <blockquote className="relative mt-5 flex-1 text-[0.95rem] leading-relaxed text-ink/80">
+                {item.quote}
               </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5 dark:border-white/10">
+
+              <figcaption className="mt-7 flex items-center gap-3 border-t border-hairline pt-5">
                 <img
                   src={item.photo}
                   alt={item.name}
                   loading="lazy"
-                  className="h-12 w-12 rounded-full object-cover"
+                  className="h-11 w-11 rounded-full object-cover ring-2 ring-brand-100"
                 />
                 <div>
-                  <p className="font-semibold text-slate-900 dark:text-white">{item.name}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {item.position}, {item.company}
+                  <p className="font-display text-sm font-bold text-ink">{item.name}</p>
+                  <p className="font-mono text-[0.68rem] text-muted">
+                    {item.position} · {item.company}
                   </p>
                 </div>
               </figcaption>

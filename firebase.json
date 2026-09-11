@@ -10,7 +10,7 @@
     ],
     "headers": [
       {
-        "source": "**/*.@(js|css|svg|png|jpg|jpeg|webp|woff2)",
+        "source": "/assets/**/*.@(js|css|svg|png|jpg|jpeg|webp|woff2)",
         "headers": [
           {
             "key": "Cache-Control",
@@ -28,7 +28,20 @@
         ]
       },
       {
-        "source": "/@(og-image.png|apple-touch-icon.png|logo.png|favicon.svg|favicon-32.png|robots.txt|sitemap.xml|site.webmanifest)",
+        "source": "/favicon.ico",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "image/x-icon"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400"
+          }
+        ]
+      },
+      {
+        "source": "/@(og-image.png|og-image.jpg|apple-touch-icon.png|logo.png|favicon.svg|favicon-32.png|favicon-48.png|favicon-96.png|favicon-192.png|favicon-180.png|robots.txt|sitemap.xml|site.webmanifest)",
         "headers": [
           {
             "key": "Cache-Control",

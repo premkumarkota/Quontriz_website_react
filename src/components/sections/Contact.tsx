@@ -1,13 +1,17 @@
+import { MapPin } from 'lucide-react'
 import { useState, type FormEvent } from 'react'
-import { motion } from 'framer-motion'
-import { Clock3, Mail, MapPin } from 'lucide-react'
+import hitecNight from '../../assets/media/hitec-night.jpg'
 import { contactEmail, offices, serviceOptions } from '../../data/content'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { SectionHeading } from '../ui/SectionHeading'
 
+const field =
+  'w-full border-0 border-b border-hairline bg-transparent px-0 py-3 text-base text-ink outline-none transition placeholder:text-ink/45 focus:border-signal'
+
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const office = offices[0]
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -17,41 +21,50 @@ export function Contact() {
   return (
     <section id="contact" className="section-pad">
       <Container>
-        <SectionHeading
-          eyebrow="Contact"
-          title="Talk to the founders"
-          description="Ask about mobile app solutions or consulting help — we typically reply within one business day."
-        />
+        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <SectionHeading
+              kicker="Write us"
+              title="Talk to the founders."
+              description="Mobile apps or Oracle work. We typically reply within one business day."
+            />
+            <p className="text-base text-ink">
+              <a href={`mailto:${contactEmail}`} className="underline decoration-hairline underline-offset-4 hover:text-signal">
+                {contactEmail}
+              </a>
+            </p>
+            <p className="mt-6 flex max-w-md items-start gap-3 text-base leading-relaxed text-ink">
+              <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[2px] bg-white text-signal ring-1 ring-hairline">
+                <MapPin size={16} strokeWidth={2} aria-hidden />
+              </span>
+              <span>{office.address}</span>
+            </p>
+            <p className="mt-3 font-mono text-sm uppercase tracking-[0.12em] text-ink">{office.hours}</p>
+            <figure className="mt-10">
+              <img
+                src={hitecNight}
+                alt="IT corridor at dusk, Gachibowli"
+                className="aspect-[16/10] w-full object-cover"
+              />
+              <figcaption className="mt-3 font-mono text-sm uppercase tracking-[0.14em] text-ink">
+                Innov8 Vasavi · Gachibowli · not a storefront photo
+              </figcaption>
+            </figure>
+          </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <motion.form
-            onSubmit={onSubmit}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] sm:p-8 dark:border-white/10 dark:bg-white/5"
-          >
-            <div className="grid gap-4 sm:grid-cols-2">
+          <form onSubmit={onSubmit} className="lg:pt-4">
+            <div className="grid gap-6 sm:grid-cols-2">
               <Field label="Name" id="name" required />
               <Field label="Email" id="email" type="email" required />
               <Field label="Company" id="company" />
               <Field label="Phone" id="phone" type="tel" />
               <div className="sm:col-span-2">
-                <label
-                  htmlFor="service"
-                  className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200"
-                >
+                <label htmlFor="service" className="font-mono text-sm uppercase tracking-[0.14em] text-ink">
                   Service
                 </label>
-                <select
-                  id="service"
-                  name="service"
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
-                  defaultValue=""
-                  required
-                >
+                <select id="service" name="service" className={field} defaultValue="" required>
                   <option value="" disabled>
-                    Select a service
+                    Select
                   </option>
                   {serviceOptions.map((option) => (
                     <option key={option} value={option}>
@@ -61,10 +74,7 @@ export function Contact() {
                 </select>
               </div>
               <div className="sm:col-span-2">
-                <label
-                  htmlFor="message"
-                  className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200"
-                >
+                <label htmlFor="message" className="font-mono text-sm uppercase tracking-[0.14em] text-ink">
                   Message
                 </label>
                 <textarea
@@ -72,97 +82,22 @@ export function Contact() {
                   name="message"
                   rows={5}
                   required
-                  className="w-full resize-y rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
-                  placeholder="Share your project goals, timeline, and current Oracle landscape..."
+                  className={`${field} resize-y`}
+                  placeholder="Goals, timeline, current Oracle landscape…"
                 />
               </div>
             </div>
-
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button type="submit">Send Message</Button>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button type="submit" variant="invert">
+                Send message
+              </Button>
               {submitted && (
-                <p className="text-sm font-medium text-brand-700 dark:text-brand-300" role="status">
-                  Thank you — we’ll be in touch shortly.
+                <p className="text-sm text-signal" role="status">
+                  Thanks — we’ll be in touch shortly.
                 </p>
               )}
             </div>
-          </motion.form>
-
-          <motion.aside
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="space-y-5"
-          >
-            <div
-              className="flex aspect-[16/10] items-center justify-center overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-slate-100 to-brand-50 p-6 dark:border-white/10 dark:from-brand-900 dark:to-brand-800"
-              role="img"
-              aria-label="Map placeholder for QUONTRIZ Hyderabad office"
-            >
-              <div className="text-center">
-                <MapPin className="mx-auto text-brand-600 dark:text-brand-300" size={28} />
-                <p className="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                  Innov8 Vasavi · Gachibowli
-                </p>
-                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                  Hyderabad, Telangana 500081
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200/80 bg-white p-6 dark:border-white/10 dark:bg-white/5">
-              <ul className="space-y-4 text-sm">
-                <li className="flex gap-3">
-                  <Mail className="mt-0.5 shrink-0 text-brand-600 dark:text-brand-300" size={18} />
-                  <div>
-                    <p className="font-semibold text-slate-900 dark:text-white">Email</p>
-                    <a
-                      href={`mailto:${contactEmail}`}
-                      className="text-slate-600 hover:text-brand-700 dark:text-slate-300"
-                    >
-                      {contactEmail}
-                    </a>
-                  </div>
-                </li>
-                <li className="flex gap-3">
-                  <MapPin className="mt-0.5 shrink-0 text-brand-600 dark:text-brand-300" size={18} />
-                  <div>
-                    <p className="font-semibold text-slate-900 dark:text-white">Office</p>
-                    <p className="text-slate-600 dark:text-slate-300">
-                      Innov8 Vasavi Gachibowli, Hyderabad
-                    </p>
-                  </div>
-                </li>
-                <li className="flex gap-3">
-                  <Clock3 className="mt-0.5 shrink-0 text-brand-600 dark:text-brand-300" size={18} />
-                  <div>
-                    <p className="font-semibold text-slate-900 dark:text-white">Business Hours</p>
-                    <p className="text-slate-600 dark:text-slate-300">
-                      Mon–Fri · 9:00 AM – 6:30 PM IST
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              {offices.map((office) => (
-                <address
-                  key={office.city}
-                  className="not-italic rounded-2xl border border-slate-200/80 bg-slate-50/80 p-5 dark:border-white/10 dark:bg-white/5"
-                >
-                  <p className="font-display font-bold text-slate-900 dark:text-white">
-                    {office.city} HQ
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                    {office.address}
-                  </p>
-                  <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">{office.hours}</p>
-                </address>
-              ))}
-            </div>
-          </motion.aside>
+          </form>
         </div>
       </Container>
     </section>
@@ -182,19 +117,10 @@ function Field({
 }) {
   return (
     <div>
-      <label
-        htmlFor={id}
-        className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200"
-      >
+      <label htmlFor={id} className="font-mono text-sm uppercase tracking-[0.14em] text-ink">
         {label}
       </label>
-      <input
-        id={id}
-        name={id}
-        type={type}
-        required={required}
-        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
-      />
+      <input id={id} name={id} type={type} required={required} className={field} />
     </div>
   )
 }

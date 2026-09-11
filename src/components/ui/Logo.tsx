@@ -1,5 +1,4 @@
 import { clsx } from 'clsx'
-import qMark from '../../assets/logo/quontriz-q.svg'
 import wordmark from '../../assets/logo/quontriz-wordmark-2.png'
 import wordmarkWhite from '../../assets/logo/quontriz-wordmark-2-white.png'
 
@@ -12,27 +11,15 @@ export function Logo({
   inverted?: boolean
   size?: 'nav' | 'hero'
 }) {
-  // Hero keeps the standalone Q mark as its centerpiece.
-  if (size === 'hero') {
-    return (
-      <img
-        src={qMark}
-        alt="QUONTRIZ"
-        className={clsx(
-          'shrink-0 object-contain h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24',
-          className,
-        )}
-      />
-    )
-  }
-
-  // Header / footer use the full wordmark.
   return (
     <img
       src={inverted ? wordmarkWhite : wordmark}
       alt="QUONTRIZ"
       className={clsx(
-        'shrink-0 object-contain object-left h-6 w-auto max-w-[170px] sm:h-7 sm:max-w-[195px]',
+        'shrink-0 object-contain object-left',
+        size === 'hero'
+          ? 'h-16 w-auto max-w-[280px] sm:h-20 lg:h-24'
+          : 'h-8 w-auto max-w-[220px] sm:h-9 sm:max-w-[250px] lg:h-10 lg:max-w-[270px]',
         className,
       )}
     />

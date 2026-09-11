@@ -13,14 +13,18 @@ import {
   Workflow,
   type LucideIcon,
 } from 'lucide-react'
+import erpDesk from '../assets/media/erp-desk.jpg'
+import fieldErp from '../assets/media/field-erp.jpg'
+import gachibowli from '../assets/media/gachibowli.jpg'
+import mobileApp from '../assets/media/mobile-app.jpg'
+import wafer from '../assets/media/wafer.jpg'
+import warehouse from '../assets/media/warehouse.jpg'
 
 export const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
+  { label: 'Studio', href: '#about' },
+  { label: 'Work', href: '#services' },
   { label: 'Industries', href: '#industries' },
-  { label: 'Careers', href: '#careers' },
-  { label: 'Blog', href: '#blog' },
+  { label: 'Notes', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -122,15 +126,57 @@ export const services: {
 ]
 
 export const industries = [
-  { name: 'Retail & Distribution', description: 'Customer and ops mobile apps for branches and field teams.' },
-  { name: 'Education & EdTech', description: 'Learning and engagement apps for students and teachers.' },
-  { name: 'Healthcare', description: 'Secure mobile experiences for care and operations teams.' },
-  { name: 'Semiconductor', description: 'Where our Oracle practice goes deep.' },
-  { name: 'Electronics Manufacturing', description: 'OEM / EMS process complexity.' },
-  { name: 'High-Tech Manufacturing', description: 'Product + process heavy environments.' },
-  { name: 'Automotive Components', description: 'Quality and traceability pressure.' },
-  { name: 'Industrial Manufacturing', description: 'ERP modernization journeys.' },
-  { name: 'Logistics', description: 'Tracking, scheduling, and field workforce apps.' },
+  {
+    name: 'Retail & Distribution',
+    description: 'Customer and ops mobile apps for branches and field teams.',
+    image:
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Education & EdTech',
+    description: 'Learning and engagement apps for students and teachers.',
+    image:
+      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Healthcare',
+    description: 'Secure mobile experiences for care and operations teams.',
+    image:
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Semiconductor',
+    description: 'Where our Oracle practice goes deep.',
+    image: wafer,
+  },
+  {
+    name: 'Electronics Manufacturing',
+    description: 'OEM / EMS process complexity.',
+    image: fieldErp,
+  },
+  {
+    name: 'High-Tech Manufacturing',
+    description: 'Product + process heavy environments.',
+    image:
+      'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Automotive Components',
+    description: 'Quality and traceability pressure.',
+    image:
+      'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Industrial Manufacturing',
+    description: 'ERP modernization journeys.',
+    image:
+      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Logistics',
+    description: 'Tracking, scheduling, and field workforce apps.',
+    image: warehouse,
+  },
 ]
 
 export const whyChooseUs = [
@@ -280,24 +326,21 @@ export const blogPosts = [
     category: 'Company',
     date: 'Jul 17, 2026',
     readingTime: '4 min read',
-    image:
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80',
+    image: gachibowli,
   },
   {
     title: 'How We Approach Mobile App Solutions',
     category: 'Mobile',
     date: 'Jul 24, 2026',
     readingTime: '5 min read',
-    image:
-      'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1000&q=80',
+    image: mobileApp,
   },
   {
     title: 'Flutter for Enterprise-Ready Mobile Delivery',
     category: 'Engineering',
     date: 'Jul 30, 2026',
     readingTime: '4 min read',
-    image:
-      'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1000&q=80',
+    image: erpDesk,
   },
 ]
 

@@ -1,11 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="QUONTRIZ">
-  <rect width="64" height="64" rx="14" fill="#1A4FE3"/>
-  <circle cx="32" cy="30.5" r="16.2" stroke="#fff" stroke-width="6.4"/>
+  <defs>
+    <linearGradient id="q" x1="16" y1="10" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6B9BFF"/>
+      <stop offset="1" stop-color="#1A4FE3"/>
+    </linearGradient>
+  </defs>
   <path
-    d="M32 44.2 C27.2 44.2 24.2 41 24.4 36.4 C24.6 32.8 27.4 30.2 31.4 30.2"
-    stroke="#fff"
-    stroke-width="6.4"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    fill="url(#q)"
+    fill-rule="evenodd"
+    d="M30 16.2a17.8 17.8 0 1 0 0 35.6 17.8 17.8 0 0 0 0-35.6Zm0 10.2a7.6 7.6 0 1 1 0 15.2 7.6 7.6 0 0 1 0-15.2Z"
   />
+  <rect x="38.4" y="40.2" width="7" height="17.2" rx="1.5" fill="url(#q)" transform="rotate(-38 41.9 48.8)"/>
+  <rect x="44.2" y="9.6" width="6.4" height="6.4" rx="1.1" fill="#7AA8FF"/>
+  <rect x="51.6" y="7.4" width="4.6" height="4.6" rx="0.9" fill="#5B8CFF"/>
+  <rect x="49.8" y="15.4" width="5.4" height="5.4" rx="1" fill="#3A6AF0"/>
+  <rect x="55.6" y="13.6" width="3.6" height="3.6" rx="0.7" fill="#8BB4FF"/>
 </svg>

@@ -15,23 +15,16 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
 
-function getInitialTheme(): Theme {
-  if (typeof window === 'undefined') return 'light'
-  const stored = localStorage.getItem('quontriz-theme') as Theme | null
-  if (stored === 'dark') return 'dark'
-  return 'light'
-}
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme)
+  // Light theme only — dark mode has been removed.
+  const [theme] = useState<Theme>('light')
 
   useEffect(() => {
-    const root = document.documentElement
-    root.classList.toggle('dark', theme === 'dark')
-    localStorage.setItem('quontriz-theme', theme)
-  }, [theme])
+    document.documentElement.classList.remove('dark')
+    localStorage.setItem('quontriz-theme', 'light')
+  }, [])
 
-  const toggleTheme = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'))
+  const toggleTheme = () => {}
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
