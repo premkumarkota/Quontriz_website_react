@@ -14,8 +14,8 @@ export function Industries() {
           <div>
             <SectionHeading
               kicker="Where first"
-              title="High-tech floors. Field teams. Oracle in the back."
-              description="We are concentrating on environments where ERP and a phone have to tell the same story."
+              title="Dark factories. High-tech floors. Oracle in the back."
+              description="Lights-out semiconductor stores with no people on the floor. ERP and the few remaining phones still have to tell the same story."
             />
             <ul className="border-t border-hairline">
               {industries.map((industry, i) => {
@@ -48,12 +48,19 @@ export function Industries() {
           <figure className="lg:sticky lg:top-28">
             <img
               src={current.image}
-              alt={current.name}
+              alt={current.credit ?? current.name}
               className="aspect-[4/5] w-full object-cover sm:aspect-[5/4] lg:aspect-[4/5]"
+              loading="lazy"
+              decoding="async"
             />
             <figcaption className="mt-4 max-w-md">
               <p className="font-display text-xl font-semibold text-ink">{current.name}</p>
               <p className="mt-2 text-base leading-relaxed text-ink">{current.description}</p>
+              {current.credit && (
+                <p className="mt-2 font-mono text-sm uppercase tracking-[0.14em] text-ink/70">
+                  {current.credit}
+                </p>
+              )}
             </figcaption>
           </figure>
         </div>

@@ -9,7 +9,7 @@ export function Services() {
         <SectionHeading
           kicker="Work"
           title="What we take on"
-          description="Mobile delivery we own end to end. Oracle work we sit in, not slide-deck."
+          description="Mobile delivery we own end to end. Oracle work we sit in — including lights-out semiconductor stores."
         />
 
         <ul className="divide-y divide-hairline border-y border-hairline">

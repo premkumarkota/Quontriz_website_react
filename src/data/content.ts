@@ -14,11 +14,27 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import erpDesk from '../assets/media/erp-desk.jpg'
-import fieldErp from '../assets/media/field-erp.jpg'
 import gachibowli from '../assets/media/gachibowli.jpg'
 import mobileApp from '../assets/media/mobile-app.jpg'
-import wafer from '../assets/media/wafer.jpg'
-import warehouse from '../assets/media/warehouse.jpg'
+
+const pexels = (id: number) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1400`
+const unsplash = (id: string) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1400&q=80`
+
+/** Network stills — not photos of a QUONTRIZ or client plant. */
+export const netStills = {
+  darkHall: pexels(236705),
+  robotArm: pexels(36522025),
+  emptyDock: pexels(257636),
+  motherboard: pexels(2582937),
+  warehouseStore: unsplash('photo-1586528116311-ad8dd3c8310d'),
+  circuitBoard: unsplash('photo-1518770660439-4636190af475'),
+  retail: unsplash('photo-1441986300917-64674bd600d8'),
+  campus: unsplash('photo-1523240795612-9a054b0db644'),
+  healthcare: unsplash('photo-1576091160399-112ba8d25d1d'),
+  autoShop: unsplash('photo-1486262715619-67b85e0b08d3'),
+}
 
 export const navLinks = [
   { label: 'Studio', href: '#about' },
@@ -97,10 +113,10 @@ export const services: {
   },
   {
     icon: Cpu,
-    title: 'Semiconductor & High-Tech Consulting',
+    title: 'Semiconductor & Dark-Factory Consulting',
     description:
-      'Consulting for fab-adjacent and electronics manufacturers modernizing planning and supply chain processes.',
-    points: ['Process discovery', 'ERP fit assessment', 'Integration scoping'],
+      'Lights-out fabs and unmanned stores: no shop-floor workforce. We sit with Fusion and EBS so the core still sees every move — and we put exceptions on a phone for the few people who still walk in.',
+    points: ['Dark-store / lights-out process', 'ERP fit for automated material', 'Exception apps'],
   },
   {
     icon: Sparkles,
@@ -127,55 +143,59 @@ export const services: {
 
 export const industries = [
   {
+    name: 'Dark factories',
+    description:
+      'Lights-out plants and unmanned stores — robots and software, no floor workforce. Oracle still has to record every move. We do not run a fab; we sit with the core and the exception path.',
+    image: netStills.darkHall,
+    credit: 'Stock still · empty hall · not a client plant',
+  },
+  {
     name: 'Retail & Distribution',
     description: 'Customer and ops mobile apps for branches and field teams.',
-    image:
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
+    image: netStills.retail,
   },
   {
     name: 'Education & EdTech',
     description: 'Learning and engagement apps for students and teachers.',
-    image:
-      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+    image: netStills.campus,
   },
   {
     name: 'Healthcare',
     description: 'Secure mobile experiences for care and operations teams.',
-    image:
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',
+    image: netStills.healthcare,
   },
   {
     name: 'Semiconductor',
-    description: 'Where our Oracle practice goes deep.',
-    image: wafer,
+    description: 'Fabs and fab-adjacent plants. Wafers, stockers, planning — Oracle in the back.',
+    image: netStills.circuitBoard,
+    credit: 'Stock still · not a wafer fab photograph',
   },
   {
     name: 'Electronics Manufacturing',
     description: 'OEM / EMS process complexity.',
-    image: fieldErp,
+    image: netStills.motherboard,
   },
   {
     name: 'High-Tech Manufacturing',
-    description: 'Product + process heavy environments.',
-    image:
-      'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=900&q=80',
+    description: 'Product + process heavy environments. Arms on the line, people off it.',
+    image: netStills.robotArm,
+    credit: 'Stock still · welding cell · not a QUONTRIZ floor',
   },
   {
     name: 'Automotive Components',
     description: 'Quality and traceability pressure.',
-    image:
-      'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=80',
+    image: netStills.autoShop,
   },
   {
     name: 'Industrial Manufacturing',
-    description: 'ERP modernization journeys.',
-    image:
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80',
+    description: 'ERP modernization journeys. The hall can run quiet.',
+    image: netStills.emptyDock,
   },
   {
     name: 'Logistics',
-    description: 'Tracking, scheduling, and field workforce apps.',
-    image: warehouse,
+    description: 'Unmanned aisles. Tracking, scheduling, and the few phones that still walk in.',
+    image: netStills.warehouseStore,
+    credit: 'Stock still · unmanned store aisle',
   },
 ]
 
@@ -322,6 +342,13 @@ export const careers = [
 
 export const blogPosts = [
   {
+    title: 'Dark factories: a store with the lights off',
+    category: 'High-tech',
+    date: 'Sep 12, 2026',
+    readingTime: '4 min read',
+    image: netStills.robotArm,
+  },
+  {
     title: 'Why We Started QUONTRIZ Technologies',
     category: 'Company',
     date: 'Jul 17, 2026',
@@ -360,6 +387,7 @@ export const serviceOptions = [
   'Custom App Engineering',
   'Oracle Fusion Cloud Advisory',
   'Oracle EBS Support',
+  'Semiconductor / dark factory',
   'UI/UX for Mobile',
   'Digital Transformation Starter',
   'Other',

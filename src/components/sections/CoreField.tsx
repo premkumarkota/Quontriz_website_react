@@ -1,4 +1,4 @@
-import fieldErp from '../../assets/media/field-erp.jpg'
+import { netStills } from '../../data/content'
 import { Container } from '../ui/Container'
 
 export function CoreField() {
@@ -21,13 +21,13 @@ export function CoreField() {
               Oracle Fusion Cloud
             </p>
             <p className="mt-3 max-w-sm text-base leading-relaxed text-white sm:text-lg">
-              E-Business Suite, planning, and supply — the system the plant already runs on.
+              E-Business Suite, planning, and supply — including lights-out stores the plant already runs on.
             </p>
           </div>
           <div className="relative min-h-[280px] bg-white">
             <img
-              src={fieldErp}
-              alt="Field tablet in an industrial setting"
+              src={netStills.darkHall}
+              alt="Empty industrial hall — stock still of a lights-out floor"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
@@ -37,7 +37,7 @@ export function CoreField() {
                 Flutter field app
               </p>
               <p className="mt-3 max-w-sm text-base leading-relaxed text-white sm:text-lg">
-                iOS and Android — a technician can actually use it.
+                When the store is dark, a technician’s phone is the exception path.
               </p>
             </div>
           </div>

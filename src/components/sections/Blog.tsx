@@ -16,6 +16,8 @@ export function Blog() {
               src={lead.image}
               alt=""
               className="h-full min-h-[240px] w-full object-cover lg:absolute lg:inset-0 lg:min-h-0"
+              loading="lazy"
+              decoding="async"
             />
           </a>
           <ul className="flex h-full flex-col divide-y divide-hairline border-y border-hairline">

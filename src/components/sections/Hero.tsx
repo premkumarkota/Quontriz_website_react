@@ -33,8 +33,8 @@ export function Hero() {
           </span>
         </h1>
         <p className="mt-7 max-w-2xl text-2xl leading-[1.6] text-white">
-          We modernize Fusion Cloud and E-Business Suite, then put the same process in a phone a
-          technician can actually use.
+          We modernize Fusion Cloud and E-Business Suite — including dark factories, where the store
+          runs with no floor workforce — then put exceptions in a phone a technician can actually use.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Button href="#contact">
