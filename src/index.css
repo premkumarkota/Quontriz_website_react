@@ -1,73 +1,70 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
   --color-brand-50: #eef3ff;
   --color-brand-100: #dee9ff;
   --color-brand-200: #c2d5ff;
   --color-brand-300: #97b6ff;
-  --color-brand-400: #5e8cfb;
-  --color-brand-500: #3366f0;
-  --color-brand-600: #1a4fe3;
   --color-brand-700: #123fba;
-  --color-brand-800: #0f3390;
   --color-brand-900: #0a2a6b;
-  --color-brand-950: #0b1b33;
 
-  --color-ink: #0b1b33;
-  --color-signal: #1a4fe3;
-  --color-deep: #0a2a6b;
-  --color-paper: #f6f7f9;
-  --color-mist: #eef1f5;
-  --color-hairline: #d5dce6;
-  --color-muted: #334155;
-  --color-steel: #3d4f66;
+  /* Palette */
+  --color-ink: #0a1628;
+  --color-ink-2: #111f36;
+  --color-porcelain: #f3f5f7;
+  --color-line: #dce2e9;
+  --color-steel: #56657a;
+  --color-cobalt: #1a4fe3;
+  --color-amber: #f5a623;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
-    @apply bg-paper text-ink font-sans text-[1.125rem] leading-relaxed antialiased;
+    @apply bg-white text-ink font-sans text-[1.0625rem] leading-relaxed antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    @apply bg-signal text-white;
+    @apply bg-cobalt text-white;
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-signal;
+    @apply outline-2 outline-offset-2 outline-cobalt;
   }
 }
 
 @layer utilities {
-  .eyebrow {
-    @apply font-mono text-sm font-normal uppercase tracking-[0.16em] text-signal;
+  /* Semi-expanded industrial display cut. */
+  .display {
+    font-family: var(--font-display);
+    font-stretch: 112%;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .tag {
+    @apply font-mono text-[0.75rem] font-medium uppercase tracking-[0.14em];
   }
 
   .section-pad {
-    @apply py-20 sm:py-24 lg:py-[7.5rem];
+    @apply py-20 sm:py-24 lg:py-32;
   }
 
-  .rule {
-    @apply border-hairline;
-  }
-
-  .page-stack {
-    position: relative;
-  }
-
-  .page-panel {
-    position: sticky;
-    top: 0;
-    min-height: 100svh;
-    scroll-margin-top: 0;
+  /* Engineering-drawing grid for dark panels. */
+  .drawing-grid {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
   .reveal-line {
@@ -94,8 +91,5 @@
   .reveal-line > span {
     animation: none;
     transform: none;
-  }
-  .page-panel {
-    position: relative;
   }
 }

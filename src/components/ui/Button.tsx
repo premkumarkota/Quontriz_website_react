@@ -1,12 +1,13 @@
 import { clsx } from 'clsx'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
-type Variant = 'primary' | 'ghost' | 'invert'
+type Variant = 'primary' | 'light' | 'outline' | 'outlineDark'
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-signal text-white hover:bg-brand-700',
-  ghost: 'bg-white text-ink hover:bg-mist',
-  invert: 'bg-ink text-white hover:bg-brand-900',
+  primary: 'bg-cobalt text-white hover:bg-brand-700',
+  light: 'bg-white text-ink hover:bg-porcelain',
+  outline: 'border border-white/35 text-white hover:border-white hover:bg-white/5',
+  outlineDark: 'border border-ink/25 text-ink hover:border-ink',
 }
 
 type CommonProps = {
@@ -24,7 +25,7 @@ type ButtonAsLink = CommonProps &
 export function Button(props: ButtonAsButton | ButtonAsLink) {
   const { children, variant = 'primary', className } = props
   const classes = clsx(
-    'inline-flex items-center justify-center gap-2 rounded-[2px] px-7 py-3.5 text-base font-normal tracking-[0.04em] uppercase transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
+    'group inline-flex items-center justify-center gap-2.5 rounded-[3px] px-6 py-3.5 text-[0.95rem] font-semibold transition-colors duration-200',
     variants[variant],
     className,
   )

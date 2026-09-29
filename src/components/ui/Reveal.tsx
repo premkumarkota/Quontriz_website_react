@@ -7,7 +7,7 @@ export const pageEase = [0.16, 1, 0.3, 1] as const
 export const pageViewport = { once: true, amount: 0.28, margin: '-8% 0px' } as const
 
 const fromMap = {
-  up: { x: 0, y: 56 },
+  up: { x: 0, y: 20 },
   down: { x: 0, y: -40 },
   left: { x: -72, y: 0 },
   right: { x: 72, y: 0 },
@@ -18,7 +18,7 @@ export function Reveal({
   children,
   from = 'up',
   delay = 0,
-  duration = 0.85,
+  duration = 0.7,
   className,
 }: {
   children: ReactNode

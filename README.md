@@ -1,6 +1,6 @@
 # QUONTRIZ Technologies
 
-Premium corporate website for QUONTRIZ Technologies — Oracle ERP, semiconductor, and high-tech digital transformation consulting.
+Corporate website for QUONTRIZ Technologies — industrial automation (PLC, SCADA, MES, IIoT) and Oracle ERP consulting. Site copy lives in `src/data/content.ts`.
 
 ## Stack
 

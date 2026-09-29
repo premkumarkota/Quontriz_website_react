@@ -2,13 +2,13 @@ import { ThemeProvider } from './context/ThemeContext'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { Hero } from './components/sections/Hero'
-import { CoreField } from './components/sections/CoreField'
-import { About } from './components/sections/About'
+import { Gap } from './components/sections/Gap'
 import { Services } from './components/sections/Services'
+import { Outcomes } from './components/sections/Outcomes'
 import { Industries } from './components/sections/Industries'
-import { Process } from './components/sections/Process'
-import { Technologies } from './components/sections/Technologies'
-import { Blog } from './components/sections/Blog'
+import { Approach } from './components/sections/Approach'
+import { Company } from './components/sections/Company'
+import { Insights } from './components/sections/Insights'
 import { Contact } from './components/sections/Contact'
 
 function App() {
@@ -22,16 +22,14 @@ function App() {
       </a>
       <Navbar />
       <main id="main">
-        <div className="page-stack">
-          <Hero />
-          <CoreField />
-        </div>
-        <About />
+        <Hero />
+        <Gap />
         <Services />
+        <Outcomes />
         <Industries />
-        <Process />
-        <Technologies />
-        <Blog />
+        <Approach />
+        <Company />
+        <Insights />
         <Contact />
       </main>
       <Footer />

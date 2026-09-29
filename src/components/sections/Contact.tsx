@@ -1,12 +1,11 @@
-import { MapPin } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 import { useState, type FormEvent } from 'react'
-import hitecNight from '../../assets/media/hitec-night.jpg'
-import { contactEmail, offices, serviceOptions } from '../../data/content'
+import { contactEmail, nextSteps, offices, serviceOptions } from '../../data/content'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 
 const field =
-  'w-full border-0 border-b border-hairline bg-transparent px-0 py-3 text-base text-ink outline-none transition placeholder:text-ink/45 focus:border-signal'
+  'mt-2 h-12 w-full rounded-[3px] border border-line bg-white px-4 py-3 text-[0.98rem] text-ink outline-none transition placeholder:text-steel/60 focus:border-cobalt focus:ring-2 focus:ring-cobalt/15'
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
@@ -18,98 +17,97 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="section-pad">
-      <Container>
-        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+    <section id="contact" className="relative overflow-hidden bg-ink text-white">
+      <div className="drawing-grid absolute inset-0" aria-hidden />
+      <Container className="section-pad relative">
+        <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
           <div>
-            <p className="font-mono text-sm uppercase tracking-[0.16em] text-signal">Write us</p>
-            <h2 className="mt-3 font-display text-[1.85rem] font-semibold leading-[1.22] tracking-[-0.02em] text-ink sm:text-[2.25rem] lg:text-[2.55rem]">
-              Talk to the founders.
+            <p className="tag flex items-center gap-3 text-brand-200">
+              <span className="h-px w-8 bg-brand-200" aria-hidden />
+              Contact
+            </p>
+            <h2 className="display mt-5 text-[2.2rem] leading-[1.08] sm:text-[3rem] lg:text-[3.4rem]">
+              Let’s trace one signal through your plant.
             </h2>
-            <p className="mt-4 max-w-md text-base leading-[1.7] text-ink sm:text-lg">
-              Mobile apps or Oracle work. We typically reply within one business day.
+            <p className="mt-6 max-w-lg text-lg leading-[1.7] text-white/75">
+              Tell us about a line, a site or an Oracle landscape. We will come back with how we would
+              connect it, what it would take, and what it would be worth.
             </p>
 
-            <div className="mt-10 space-y-6">
-              <p className="text-base text-ink">
-                <a
-                  href={`mailto:${contactEmail}`}
-                  className="underline decoration-hairline underline-offset-4 hover:text-signal"
-                >
+            <ol className="mt-10 space-y-5 border-t border-white/15 pt-8">
+              {nextSteps.map((s, i) => (
+                <li key={s} className="flex gap-4">
+                  <span className="font-mono text-sm text-amber">{i + 1}</span>
+                  <span className="text-white/85">{s}</span>
+                </li>
+              ))}
+            </ol>
+
+            <div className="mt-10 space-y-4 border-t border-white/15 pt-8 text-[0.95rem]">
+              <p className="flex items-center gap-3">
+                <Mail size={17} className="shrink-0 text-brand-200" aria-hidden />
+                <a href={`mailto:${contactEmail}`} className="underline decoration-white/30 underline-offset-4 hover:decoration-white">
                   {contactEmail}
                 </a>
               </p>
-              <p className="flex max-w-md items-start gap-3 text-base leading-relaxed text-ink">
-                <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[2px] bg-white text-signal ring-1 ring-hairline">
-                  <MapPin size={16} strokeWidth={2} aria-hidden />
-                </span>
+              <p className="flex max-w-md items-start gap-3 leading-relaxed text-white/75">
+                <MapPin size={17} className="mt-1 shrink-0 text-brand-200" aria-hidden />
                 <span>{office.address}</span>
               </p>
-              <p className="font-mono text-sm uppercase tracking-[0.12em] text-ink">{office.hours}</p>
             </div>
           </div>
 
           <form
             onSubmit={onSubmit}
-            className="flex flex-col gap-6 border border-hairline bg-white p-7 sm:p-9"
+            className="rounded-[4px] bg-white p-7 text-ink shadow-[0_40px_80px_-40px_rgb(0_0_0/0.6)] sm:p-10"
           >
-            <div className="grid gap-6 sm:grid-cols-2">
-              <Field label="Name" id="name" required />
-              <Field label="Email" id="email" type="email" required />
-              <Field label="Company" id="company" />
-              <Field label="Phone" id="phone" type="tel" />
-            </div>
-            <div>
-              <label htmlFor="service" className="font-mono text-sm uppercase tracking-[0.14em] text-ink">
-                Service
-              </label>
-              <select id="service" name="service" className={field} defaultValue="" required>
-                <option value="" disabled>
-                  Select
-                </option>
-                {serviceOptions.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
+            <p className="display text-2xl">Request a consultation</p>
+            <p className="mt-2 text-[0.95rem] text-steel">All fields marked * are required.</p>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <Field label="Full name *" id="name" autoComplete="name" required />
+              <Field label="Work email *" id="email" type="email" autoComplete="email" required />
+              <Field label="Company *" id="company" autoComplete="organization" required />
+              <Field label="Job title" id="title" autoComplete="organization-title" />
+              <Field label="Phone" id="phone" type="tel" autoComplete="tel" />
+              <div>
+                <label htmlFor="service" className="text-[0.9rem] font-medium">
+                  Area of interest *
+                </label>
+                <select id="service" name="service" className={field} defaultValue="" required>
+                  <option value="" disabled>
+                    Select one
                   </option>
-                ))}
-              </select>
+                  {serviceOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-            <div>
-              <label htmlFor="message" className="font-mono text-sm uppercase tracking-[0.14em] text-ink">
-                Message
+            <div className="mt-5">
+              <label htmlFor="message" className="text-[0.9rem] font-medium">
+                What are you trying to solve? *
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows={4}
                 required
-                className={`${field} resize-y`}
-                placeholder="Goals, timeline, current Oracle landscape…"
+                className={`${field} h-auto resize-y`}
+                placeholder="Plant type, current systems (PLC, SCADA, MES, Oracle version), timeline…"
               />
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button type="submit" variant="invert">
-                Send message
-              </Button>
+            <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Button type="submit">Request consultation</Button>
               {submitted && (
-                <p className="text-sm text-signal" role="status">
-                  Thanks — we’ll be in touch shortly.
+                <p className="text-[0.95rem] font-medium text-cobalt" role="status">
+                  Request received. A consultant will reply within one business day.
                 </p>
               )}
             </div>
           </form>
         </div>
-
-        <figure className="mt-14 lg:mt-16">
-          <img
-            src={hitecNight}
-            alt="IT corridor at dusk, Gachibowli"
-            className="aspect-[21/8] w-full object-cover"
-          />
-          <figcaption className="mt-3 font-mono text-sm uppercase tracking-[0.14em] text-ink">
-            Innov8 Vasavi · Gachibowli · not a storefront photo
-          </figcaption>
-        </figure>
       </Container>
     </section>
   )
@@ -120,18 +118,20 @@ function Field({
   id,
   type = 'text',
   required,
+  autoComplete,
 }: {
   label: string
   id: string
   type?: string
   required?: boolean
+  autoComplete?: string
 }) {
   return (
     <div>
-      <label htmlFor={id} className="font-mono text-sm uppercase tracking-[0.14em] text-ink">
+      <label htmlFor={id} className="text-[0.9rem] font-medium">
         {label}
       </label>
-      <input id={id} name={id} type={type} required={required} className={field} />
+      <input id={id} name={id} type={type} required={required} autoComplete={autoComplete} className={field} />
     </div>
   )
 }
