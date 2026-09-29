@@ -34,7 +34,7 @@ export function Footer() {
               <Logo />
             </a>
             <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-steel">
-              Industrial automation and Oracle ERP consulting. From the sensor to the ledger.
+              We build your ideas into enterprise products: Oracle ERP, industrial automation, apps and AI.
             </p>
             <div className="mt-8 text-[0.9rem] leading-relaxed text-steel">
               <p className="font-semibold text-ink">{office.city}</p>

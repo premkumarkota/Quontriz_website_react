@@ -1,3 +1,4 @@
+import { Database, Factory, Smartphone, Sparkles } from 'lucide-react'
 import erpDesk from '../assets/media/erp-desk.jpg'
 import fieldErp from '../assets/media/field-erp.jpg'
 import hitecNight from '../assets/media/hitec-night.jpg'
@@ -78,11 +79,31 @@ export const navLinks = [
   { label: 'Company', href: '#company' },
 ]
 
-export const credentials = [
-  'ISA-95 aligned architecture',
-  'OPC UA · MQTT · Sparkplug B',
-  'Oracle Fusion Cloud & EBS 12.2',
-  'IEC 62443-aware OT security',
+export const heroServices = [
+  {
+    icon: Database,
+    title: 'Oracle ERP',
+    body: 'Fusion Cloud and E-Business Suite implementation, upgrades and support.',
+    href: '#service-oracle',
+  },
+  {
+    icon: Factory,
+    title: 'Industrial Automation',
+    body: 'PLC, SCADA, MES and IIoT that connect your shop floor to your business.',
+    href: '#service-automation',
+  },
+  {
+    icon: Smartphone,
+    title: 'Mobile & Web Products',
+    body: 'Apps, portals and platforms, designed and engineered end to end.',
+    href: '#service-engineering',
+  },
+  {
+    icon: Sparkles,
+    title: 'AI & Automation',
+    body: 'Forecasting, vision, document AI and bots that remove manual work.',
+    href: '#service-ai',
+  },
 ]
 
 export const gaps = [

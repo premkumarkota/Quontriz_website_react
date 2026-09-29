@@ -124,7 +124,7 @@ export function Navbar() {
               <div className="border-r border-line pr-10">
                 <p className="tag text-cobalt">Services</p>
                 <p className="display mt-4 text-2xl leading-tight text-ink">
-                  Five practices. One line from sensor to ledger.
+                  Five practices. One team, from idea to enterprise product.
                 </p>
                 <a
                   href="#services"

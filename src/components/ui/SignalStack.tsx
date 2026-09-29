@@ -48,7 +48,7 @@ export function SignalStack() {
       onBlur={() => setPaused(false)}
     >
       <div className="flex items-center justify-between gap-4 border-b border-line bg-porcelain px-5 py-3.5">
-        <p className="tag text-steel">ISA-95 · Live trace</p>
+        <p className="tag text-steel">Live · Machine to Oracle</p>
         <p className="flex items-center gap-2 text-[0.82rem] font-semibold text-ink">
           <span className="relative flex h-2 w-2">
             {!reduce && (
