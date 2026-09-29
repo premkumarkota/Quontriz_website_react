@@ -26,32 +26,32 @@ export function Footer() {
   const office = offices[0]
 
   return (
-    <footer className="border-t border-white/10 bg-[#070f1c] text-white">
+    <footer className="border-t border-line bg-white">
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_0.8fr]">
           <div>
             <a href="#home" className="inline-flex" aria-label="QUONTRIZ home">
-              <Logo inverted />
+              <Logo />
             </a>
-            <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-white/65">
+            <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-steel">
               Industrial automation and Oracle ERP consulting. From the sensor to the ledger.
             </p>
-            <div className="mt-8 text-[0.9rem] leading-relaxed text-white/65">
-              <p className="font-semibold text-white">{office.city}</p>
-              <p className="text-white/50">{office.label}</p>
+            <div className="mt-8 text-[0.9rem] leading-relaxed text-steel">
+              <p className="font-semibold text-ink">{office.city}</p>
+              <p>{office.label}</p>
               <p className="mt-2 max-w-xs">{office.address}</p>
-              <a href={`mailto:${contactEmail}`} className="mt-3 inline-block text-white hover:text-brand-200">
+              <a href={`mailto:${contactEmail}`} className="mt-3 inline-block font-medium text-cobalt hover:text-brand-700">
                 {contactEmail}
               </a>
             </div>
           </div>
           {columns.map((col) => (
             <div key={col.title}>
-              <p className="tag text-white/45">{col.title}</p>
+              <p className="tag text-steel">{col.title}</p>
               <ul className="mt-5 space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-[0.92rem] text-white/80 transition hover:text-white">
+                    <a href={link.href} className="text-[0.92rem] text-ink transition hover:text-cobalt">
                       {link.label}
                     </a>
                   </li>
@@ -60,7 +60,7 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 text-[0.85rem] text-white/50 sm:flex-row sm:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-line pt-6 text-[0.85rem] text-steel sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} QUONTRIZ Technologies. All rights reserved.</p>
           <p>{office.hours}</p>
         </div>

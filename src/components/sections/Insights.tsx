@@ -6,7 +6,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 
 export function Insights() {
   return (
-    <section id="insights" className="section-pad border-t border-line bg-porcelain">
+    <section id="insights" className="section-pad bg-white">
       <Container>
         <SectionHeading
           kicker="Insights"

@@ -57,14 +57,14 @@ export function Services() {
                   onClick={() => setActive(i)}
                   className={clsx(
                     'relative shrink-0 border-line px-5 py-4 text-left transition-colors lg:border-b lg:px-7 lg:py-6 lg:last:border-b-0',
-                    on ? 'bg-ink text-white' : 'text-ink hover:bg-porcelain',
+                    on ? 'bg-brand-50 text-ink' : 'text-ink hover:bg-porcelain',
                   )}
                 >
-                  {on && <span className="absolute inset-y-0 left-0 hidden w-1 bg-amber lg:block" aria-hidden />}
-                  <span className="block whitespace-nowrap font-semibold lg:whitespace-normal lg:text-[1.05rem]">
+                  {on && <span className="absolute inset-y-0 left-0 hidden w-1 bg-cobalt lg:block" aria-hidden />}
+                  <span className={clsx('block whitespace-nowrap font-semibold lg:whitespace-normal lg:text-[1.05rem]', on && 'text-cobalt')}>
                     {x.name}
                   </span>
-                  <span className={clsx('mt-1 hidden text-[0.88rem] leading-snug lg:block', on ? 'text-white/65' : 'text-steel')}>
+                  <span className="mt-1 hidden text-[0.88rem] leading-snug text-steel lg:block">
                     {x.short}
                   </span>
                 </button>
@@ -82,17 +82,22 @@ export function Services() {
                 exit={reduce ? undefined : { opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="relative h-48 overflow-hidden sm:h-56">
-                  <img src={p.image} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/10" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
-                    <LevelTags active={p.levels} dark />
-                    <h3 className="display mt-4 text-2xl text-white sm:text-[2rem]">{p.name}</h3>
+                <div className="grid gap-6 border-b border-line p-6 sm:p-10 md:grid-cols-[1fr_14rem] md:items-center md:gap-10">
+                  <div>
+                    <LevelTags active={p.levels} />
+                    <h3 className="display mt-4 text-2xl text-ink sm:text-[2rem]">{p.name}</h3>
+                    <p className="mt-4 max-w-2xl text-lg leading-[1.7] text-steel">{p.summary}</p>
                   </div>
+                  <img
+                    src={p.image}
+                    alt=""
+                    className="hidden aspect-[4/3] w-full rounded-[4px] object-cover md:block"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className="p-6 sm:p-10">
-                  <p className="max-w-3xl text-lg leading-[1.7] text-ink">{p.summary}</p>
-                  <ul className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+                  <ul className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
                     {p.capabilities.map((c) => (
                       <li key={c.title} className="border-t border-line pt-5">
                         <h4 className="font-semibold text-ink">{c.title}</h4>

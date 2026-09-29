@@ -1,13 +1,11 @@
 import { clsx } from 'clsx'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
-type Variant = 'primary' | 'light' | 'outline' | 'outlineDark'
+type Variant = 'primary' | 'secondary'
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-cobalt text-white hover:bg-brand-700',
-  light: 'bg-white text-ink hover:bg-porcelain',
-  outline: 'border border-white/35 text-white hover:border-white hover:bg-white/5',
-  outlineDark: 'border border-ink/25 text-ink hover:border-ink',
+  primary: 'bg-cobalt text-white shadow-[0_8px_20px_-10px_rgb(26_79_227/0.7)] hover:bg-brand-700',
+  secondary: 'border border-line bg-white text-ink hover:border-ink/40 hover:bg-porcelain',
 }
 
 type CommonProps = {

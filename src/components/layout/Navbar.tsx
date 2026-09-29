@@ -43,18 +43,18 @@ export function Navbar() {
     closeTimer.current = window.setTimeout(() => setMega(false), 120)
   }
 
-  const onDark = !scrolled && !open && !mega
+  const raised = scrolled || open || mega
 
   return (
     <header
       className={clsx(
         'fixed inset-x-0 top-0 z-[60] transition-colors duration-300',
-        onDark ? 'bg-transparent' : 'border-b border-line bg-white/95 backdrop-blur-md',
+        raised ? 'border-b border-line bg-white/95 backdrop-blur-md' : 'border-b border-transparent bg-transparent',
       )}
     >
       <Container className="flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
         <a href="#home" className="flex shrink-0 items-center" aria-label="QUONTRIZ home">
-          <Logo inverted={onDark} />
+          <Logo />
         </a>
 
         <nav className="hidden h-full items-center gap-1 lg:flex" aria-label="Primary">
@@ -69,7 +69,7 @@ export function Navbar() {
                   onClick={(e) => (e.detail === 0 ? setMega((v) => !v) : showMega())}
                   className={clsx(
                     'flex items-center gap-1.5 rounded-[3px] px-3.5 py-2 text-[0.95rem] font-medium transition-colors',
-                    onDark ? 'text-white hover:bg-white/10' : 'text-ink hover:bg-porcelain',
+                    'text-ink hover:bg-ink/5',
                   )}
                 >
                   {link.label}
@@ -82,7 +82,7 @@ export function Navbar() {
                 href={link.href}
                 className={clsx(
                   'rounded-[3px] px-3.5 py-2 text-[0.95rem] font-medium transition-colors',
-                  onDark ? 'text-white hover:bg-white/10' : 'text-ink hover:bg-porcelain',
+                  'text-ink hover:bg-ink/5',
                 )}
               >
                 {link.label}
@@ -92,12 +92,12 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button href="#contact" className="hidden !py-2.5 sm:inline-flex" variant={onDark ? 'light' : 'primary'}>
+          <Button href="#contact" className="hidden !py-2.5 sm:inline-flex">
             Talk to an expert
           </Button>
           <button
             type="button"
-            className={clsx('p-2 lg:hidden', onDark ? 'text-white' : 'text-ink')}
+            className="p-2 text-ink lg:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}

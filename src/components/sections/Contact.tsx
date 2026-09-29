@@ -17,41 +17,43 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-ink text-white">
+    <section id="contact" className="relative overflow-hidden bg-porcelain">
       <div className="drawing-grid absolute inset-0" aria-hidden />
       <Container className="section-pad relative">
         <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
           <div>
-            <p className="tag flex items-center gap-3 text-brand-200">
-              <span className="h-px w-8 bg-brand-200" aria-hidden />
+            <p className="tag flex items-center gap-3 text-cobalt">
+              <span className="h-px w-8 bg-cobalt" aria-hidden />
               Contact
             </p>
-            <h2 className="display mt-5 text-[2.2rem] leading-[1.08] sm:text-[3rem] lg:text-[3.4rem]">
+            <h2 className="display mt-5 text-[2.2rem] leading-[1.08] text-ink sm:text-[3rem] lg:text-[3.4rem]">
               Let’s trace one signal through your plant.
             </h2>
-            <p className="mt-6 max-w-lg text-lg leading-[1.7] text-white/75">
+            <p className="mt-6 max-w-lg text-lg leading-[1.7] text-steel">
               Tell us about a line, a site or an Oracle landscape. We will come back with how we would
               connect it, what it would take, and what it would be worth.
             </p>
 
-            <ol className="mt-10 space-y-5 border-t border-white/15 pt-8">
+            <ol className="mt-10 space-y-5 border-t border-line pt-8">
               {nextSteps.map((s, i) => (
                 <li key={s} className="flex gap-4">
-                  <span className="font-mono text-sm text-amber">{i + 1}</span>
-                  <span className="text-white/85">{s}</span>
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white font-mono text-xs font-medium text-cobalt ring-1 ring-line">
+                    {i + 1}
+                  </span>
+                  <span className="text-ink">{s}</span>
                 </li>
               ))}
             </ol>
 
-            <div className="mt-10 space-y-4 border-t border-white/15 pt-8 text-[0.95rem]">
+            <div className="mt-10 space-y-4 border-t border-line pt-8 text-[0.95rem] text-ink">
               <p className="flex items-center gap-3">
-                <Mail size={17} className="shrink-0 text-brand-200" aria-hidden />
-                <a href={`mailto:${contactEmail}`} className="underline decoration-white/30 underline-offset-4 hover:decoration-white">
+                <Mail size={17} className="shrink-0 text-cobalt" aria-hidden />
+                <a href={`mailto:${contactEmail}`} className="font-medium underline decoration-line underline-offset-4 hover:text-cobalt hover:decoration-cobalt">
                   {contactEmail}
                 </a>
               </p>
-              <p className="flex max-w-md items-start gap-3 leading-relaxed text-white/75">
-                <MapPin size={17} className="mt-1 shrink-0 text-brand-200" aria-hidden />
+              <p className="flex max-w-md items-start gap-3 leading-relaxed text-steel">
+                <MapPin size={17} className="mt-1 shrink-0 text-cobalt" aria-hidden />
                 <span>{office.address}</span>
               </p>
             </div>
@@ -59,7 +61,7 @@ export function Contact() {
 
           <form
             onSubmit={onSubmit}
-            className="rounded-[4px] bg-white p-7 text-ink shadow-[0_40px_80px_-40px_rgb(0_0_0/0.6)] sm:p-10"
+            className="rounded-[6px] border border-line bg-white p-7 text-ink shadow-[0_40px_80px_-40px_rgb(10_22_40/0.3)] sm:p-10"
           >
             <p className="display text-2xl">Request a consultation</p>
             <p className="mt-2 text-[0.95rem] text-steel">All fields marked * are required.</p>

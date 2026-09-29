@@ -5,7 +5,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 
 export function Company() {
   return (
-    <section id="company" className="section-pad bg-white">
+    <section id="company" className="section-pad bg-porcelain">
       <Container>
         <div className="grid items-end gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           <SectionHeading
@@ -51,7 +51,7 @@ export function Company() {
                   {pl.items.map((it) => (
                     <span
                       key={it}
-                      className="rounded-[3px] border border-line bg-porcelain px-3 py-1.5 text-[0.88rem] text-ink"
+                      className="rounded-[3px] border border-line bg-white px-3 py-1.5 text-[0.88rem] text-ink"
                     >
                       {it}
                     </span>

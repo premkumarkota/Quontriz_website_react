@@ -5,7 +5,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 
 export function Approach() {
   return (
-    <section id="approach" className="section-pad bg-porcelain">
+    <section id="approach" className="section-pad bg-white">
       <Container>
         <SectionHeading
           kicker="Approach"
@@ -16,7 +16,7 @@ export function Approach() {
         <ol className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {phases.map((ph, i) => (
             <li key={ph.name} className="relative">
-              <Reveal delay={i * 0.08} className="flex h-full flex-col rounded-[4px] border border-line bg-white p-7">
+              <Reveal delay={i * 0.08} className="flex h-full flex-col rounded-[6px] border border-line bg-porcelain/60 p-7">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-sm font-medium text-cobalt">Phase {i + 1}</span>
                   <span className="tag text-steel">{ph.duration}</span>

@@ -14,9 +14,9 @@
 
   /* Palette */
   --color-ink: #0a1628;
-  --color-ink-2: #111f36;
   --color-porcelain: #f3f5f7;
   --color-line: #dce2e9;
+  --color-line-2: #eaeef3;
   --color-steel: #56657a;
   --color-cobalt: #1a4fe3;
   --color-amber: #f5a623;
@@ -59,12 +59,13 @@
     @apply py-20 sm:py-24 lg:py-32;
   }
 
-  /* Engineering-drawing grid for dark panels. */
+  /* Engineering-drawing grid, faded toward the edges. */
   .drawing-grid {
     background-image:
-      linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+      linear-gradient(rgb(26 79 227 / 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(26 79 227 / 0.07) 1px, transparent 1px);
     background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%);
   }
 
   .reveal-line {

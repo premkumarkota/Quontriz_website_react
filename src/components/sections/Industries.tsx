@@ -8,7 +8,7 @@ export function Industries() {
   const rest = industries.filter((i) => !i.image)
 
   return (
-    <section id="industries" className="section-pad bg-white">
+    <section id="industries" className="section-pad bg-porcelain">
       <Container>
         <SectionHeading
           kicker="Industries"
@@ -18,19 +18,20 @@ export function Industries() {
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((ind, i) => (
-            <Reveal key={ind.name} delay={i * 0.06}>
-              <article className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-[4px] bg-ink">
-                <img
-                  src={ind.image}
-                  alt=""
-                  className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-[1.04]"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent" />
-                <div className="relative p-6">
-                  <h3 className="display text-xl leading-tight text-white">{ind.name}</h3>
-                  <p className="mt-3 text-[0.92rem] leading-[1.6] text-white/80">{ind.useCase}</p>
+            <Reveal key={ind.name} delay={i * 0.06} className="h-full">
+              <article className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-line bg-white transition-shadow hover:shadow-[0_24px_48px_-28px_rgb(10_22_40/0.35)]">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={ind.image}
+                    alt=""
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="flex-1 border-t-2 border-cobalt p-6">
+                  <h3 className="display text-lg leading-tight text-ink">{ind.name}</h3>
+                  <p className="mt-3 text-[0.92rem] leading-[1.6] text-steel">{ind.useCase}</p>
                 </div>
               </article>
             </Reveal>

@@ -24,7 +24,7 @@ export function Gap() {
             ))}
           </div>
           <div className="lg:col-start-2">
-            <p className="-mt-6 border-l-2 border-amber pl-5 text-lg font-medium leading-relaxed text-ink">
+            <p className="-mt-6 border-l-2 border-cobalt pl-5 text-lg font-medium leading-relaxed text-ink">
               We close that gap: one data path from the machine to Oracle, designed once and owned end
               to end.
             </p>
