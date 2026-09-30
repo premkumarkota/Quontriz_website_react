@@ -52,7 +52,7 @@ export function Navbar() {
         raised ? 'border-b border-line bg-white/95 backdrop-blur-md' : 'border-b border-transparent bg-transparent',
       )}
     >
-      <Container className="flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
+      <Container className="flex h-[4.5rem] items-center justify-between gap-2 sm:gap-6 lg:h-20">
         <a href="#home" className="flex shrink-0 items-center" aria-label="QUONTRIZ home">
           <Logo />
         </a>
@@ -92,12 +92,17 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button href="#contact" className="hidden whitespace-nowrap !py-2.5 lg:inline-flex">
-            Talk to an expert
+          <Button
+            href="#contact"
+            className="whitespace-nowrap !px-3 !py-2 !text-[0.78rem] sm:!px-5 sm:!py-2.5 sm:!text-[0.9rem] lg:!px-6 lg:!text-[0.95rem]"
+          >
+            {/* Short label on the narrowest phones so it never crowds the hamburger. */}
+            <span className="min-[380px]:hidden">Talk to us</span>
+            <span className="hidden min-[380px]:inline">Talk to an expert</span>
           </Button>
           <button
             type="button"
-            className="p-2 text-ink lg:hidden"
+            className="-mr-1.5 p-2 text-ink lg:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
