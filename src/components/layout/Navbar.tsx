@@ -92,7 +92,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button href="#contact" className="hidden !py-2.5 sm:inline-flex">
+          <Button href="#contact" className="hidden whitespace-nowrap !py-2.5 lg:inline-flex">
             Talk to an expert
           </Button>
           <button

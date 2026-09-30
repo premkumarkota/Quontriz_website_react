@@ -54,22 +54,48 @@ export function Hero() {
           </div>
         </div>
 
-        <ul className="mt-20 grid gap-4 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
+        <ul className="mt-20 grid gap-5 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
           {heroServices.map(({ icon: Icon, title, body, href }, i) => (
             <li key={title}>
               <Reveal delay={0.3 + i * 0.07} className="h-full">
                 <a
                   href={href}
-                  className="group flex h-full flex-col rounded-xl border border-line bg-white p-6 transition duration-200 hover:-translate-y-0.5 hover:border-cobalt/40 hover:shadow-[0_20px_40px_-24px_rgb(26_79_227/0.45)]"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white p-7 transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-cobalt/30 hover:shadow-[0_28px_60px_-32px_rgb(10_22_40/0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-cobalt transition-colors group-hover:bg-cobalt group-hover:text-white">
-                    <Icon size={20} strokeWidth={1.8} />
-                  </span>
-                  <h2 className="mt-5 text-[1.05rem] font-semibold text-ink">{title}</h2>
-                  <p className="mt-2 text-[0.93rem] leading-[1.6] text-steel">{body}</p>
-                  <span className="mt-auto inline-flex items-center gap-1 pt-5 text-[0.88rem] font-semibold text-cobalt">
-                    Learn more
-                    <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  {/* Accent rule that draws across the top edge on hover. */}
+                  <span
+                    className="pointer-events-none absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-cobalt to-brand-300 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                    aria-hidden
+                  />
+                  {/* Faint tint that warms the surface as the card lifts. */}
+                  <span
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-50/0 to-brand-50/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    aria-hidden
+                  />
+
+                  <div className="relative flex items-start justify-between">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-cobalt ring-1 ring-inset ring-brand-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-cobalt group-hover:text-white group-hover:ring-cobalt">
+                      <Icon size={21} strokeWidth={1.8} className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" />
+                    </span>
+                    <span className="tag text-steel/50 transition-colors duration-500 group-hover:text-cobalt">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  <h2 className="relative mt-6 text-[1.1rem] font-semibold tracking-[-0.01em] text-ink">{title}</h2>
+                  <p className="relative mt-2.5 text-[0.93rem] leading-[1.62] text-steel">{body}</p>
+
+                  <span className="relative mt-auto flex items-center gap-2.5 pt-6 text-[0.85rem] font-semibold text-steel transition-colors duration-300 group-hover:text-cobalt">
+                    <span className="relative">
+                      Learn more
+                      <span
+                        className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cobalt transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+                        aria-hidden
+                      />
+                    </span>
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-line text-steel transition-all duration-300 group-hover:border-cobalt group-hover:bg-cobalt group-hover:text-white">
+                      <ArrowUpRight size={13} className="transition-transform duration-300 group-hover:-translate-y-px group-hover:translate-x-px" />
+                    </span>
                   </span>
                 </a>
               </Reveal>
