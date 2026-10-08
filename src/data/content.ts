@@ -1,5 +1,46 @@
-import { Database, Factory, Smartphone, Sparkles } from 'lucide-react'
+import {
+  AppWindow,
+  Boxes,
+  Building2,
+  Car,
+  ClipboardCheck,
+  Cog,
+  Cpu,
+  FlaskConical,
+  Globe,
+  Headset,
+  Layers,
+  Lock,
+  Network,
+  Pickaxe,
+  Pill,
+  Rocket,
+  ShoppingBasket,
+  Shuffle,
+  Store,
+  Truck,
+  UserCheck,
+  Users,
+  Zap,
+  CalendarCheck,
+  ClipboardList,
+  Clock3,
+  Database,
+  Factory,
+  GitBranch,
+  LifeBuoy,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+  Timer,
+  Wrench,
+  type LucideIcon,
+} from 'lucide-react'
 import erpDesk from '../assets/media/erp-desk.jpg'
+import heroAi from '../assets/media/hero-ai.jpg'
+import heroApps from '../assets/media/hero-apps.jpg'
+import heroAutomation from '../assets/media/hero-automation.jpg'
+import heroErp from '../assets/media/hero-erp.jpg'
 import fieldErp from '../assets/media/field-erp.jpg'
 import hitecNight from '../assets/media/hitec-night.jpg'
 import mobileApp from '../assets/media/mobile-app.jpg'
@@ -83,41 +124,48 @@ export const heroServices = [
   {
     icon: Database,
     title: 'Oracle ERP',
-    body: 'Fusion Cloud and E-Business Suite implementation, upgrades and support.',
+    body: 'We set up, upgrade and support Oracle for your business.',
     href: '#service-oracle',
+    image: heroErp,
   },
   {
     icon: Factory,
     title: 'Industrial Automation',
-    body: 'PLC, SCADA, MES and IIoT that connect your shop floor to your business.',
+    body: 'We connect your factory machines to your business software.',
     href: '#service-automation',
+    image: heroAutomation,
   },
   {
     icon: Smartphone,
     title: 'Mobile & Web Products',
-    body: 'Apps, portals and platforms, designed and engineered end to end.',
+    body: 'Mobile apps, websites and portals, designed and built for you.',
     href: '#service-engineering',
+    image: heroApps,
   },
   {
     icon: Sparkles,
     title: 'AI & Automation',
-    body: 'Forecasting, vision, document AI and bots that remove manual work.',
+    body: 'Smart tools that forecast demand, check quality and cut manual work.',
     href: '#service-ai',
+    image: heroAi,
   },
 ]
 
 export const gaps = [
   {
-    title: 'Downtime lives on clipboards',
-    body: 'Stoppage reasons are written by hand and keyed in a shift later. Maintenance plans against memory, not machine history.',
+    icon: ClipboardList,
+    title: 'Downtime is written on paper',
+    body: 'When a machine stops, someone writes the reason on paper and types it in later. Maintenance is planned from memory, not real machine history.',
   },
   {
-    title: 'ERP learns the truth too late',
-    body: 'Production, scrap and consumption post in end-of-day batches. Inventory, costing and ATP are always a few hours wrong.',
+    icon: Clock3,
+    title: 'Your business software is always behind',
+    body: 'Production, waste and material use are entered at the end of the day, so stock levels and costs are never quite right.',
   },
   {
-    title: 'Quality has no genealogy',
-    body: 'When a lot fails, tracing it back to the machine, the recipe and the supplier reel takes days of spreadsheet work.',
+    icon: GitBranch,
+    title: 'Finding the cause of a bad batch takes days',
+    body: 'When a batch fails, finding which machine, recipe or supplier caused it means days of digging through spreadsheets.',
   },
 ]
 
@@ -125,6 +173,7 @@ export type Practice = {
   id: string
   name: string
   short: string
+  icon: LucideIcon
   levels: Level[]
   summary: string
   capabilities: { title: string; body: string }[]
@@ -134,6 +183,7 @@ export type Practice = {
 export const practices: Practice[] = [
   {
     id: 'automation',
+    icon: Factory,
     name: 'Industrial Automation Consulting',
     short: 'PLC, SCADA, MES and IIoT, designed to feed the business.',
     levels: ['L0', 'L1', 'L2', 'L3'],
@@ -169,6 +219,7 @@ export const practices: Practice[] = [
   },
   {
     id: 'oracle',
+    icon: Database,
     name: 'Oracle ERP',
     short: 'Fusion Cloud and E-Business Suite for manufacturers.',
     levels: ['L4'],
@@ -204,6 +255,7 @@ export const practices: Practice[] = [
   },
   {
     id: 'ai',
+    icon: Sparkles,
     name: 'AI & Intelligent Automation',
     short: 'Vision, forecasting, RPA and copilots on real operating data.',
     levels: ['L0', 'L3', 'L4'],
@@ -239,6 +291,7 @@ export const practices: Practice[] = [
   },
   {
     id: 'engineering',
+    icon: Smartphone,
     name: 'Digital Engineering',
     short: 'Shop-floor apps, portals and integration APIs.',
     levels: ['L2', 'L3', 'L4'],
@@ -266,6 +319,7 @@ export const practices: Practice[] = [
   },
   {
     id: 'managed',
+    icon: LifeBuoy,
     name: 'Managed Services',
     short: 'Run and improve Oracle, integrations and OT infrastructure.',
     levels: ['L2', 'L3', 'L4'],
@@ -296,75 +350,90 @@ export const practices: Practice[] = [
 export const outcomes = [
   {
     topic: 'Downtime',
-    before: 'Reason written on paper, keyed next shift, often guessed.',
-    after: 'Captured from PLC state, coded by the operator in two taps, costed in Oracle.',
+    icon: Timer,
+    before: 'The reason is written on paper, typed in next shift, and often guessed.',
+    after: 'Recorded automatically from the machine. The operator picks a reason in two taps.',
   },
   {
     topic: 'Maintenance',
-    before: 'Calendar-based PMs regardless of machine condition.',
-    after: 'Condition triggers create work orders and reserve spares automatically.',
+    icon: Wrench,
+    before: 'Machines are serviced on a fixed calendar, whether they need it or not.',
+    after: 'Machines signal when they need service, and the job and spare parts are set up automatically.',
   },
   {
     topic: 'Inventory',
-    before: 'Consumption backflushed at day end; stock accuracy drifts.',
-    after: 'Material movements post as they happen, from scale, scanner or MES.',
+    icon: Boxes,
+    before: 'Material use is entered at the end of the day, so stock numbers drift.',
+    after: 'Stock updates the moment material is used, from scales, scanners or the line.',
   },
   {
     topic: 'Quality',
-    before: 'Lot trace takes days across spreadsheets and emails.',
-    after: 'Full genealogy from finished good to machine, recipe and supplier lot in seconds.',
+    icon: ShieldCheck,
+    before: 'Tracing a bad batch takes days of spreadsheets and emails.',
+    after: 'Trace any product back to its machine, recipe and supplier in seconds.',
   },
   {
     topic: 'Month-end',
-    before: 'Production variances reconciled by hand before close.',
-    after: 'Actual costs flow from the floor; finance reviews exceptions only.',
+    icon: CalendarCheck,
+    before: 'Finance fixes production numbers by hand before closing the books.',
+    after: 'Real costs come straight from the factory. Finance only checks the exceptions.',
   },
 ]
 
 export const industries = [
   {
     name: 'Semiconductor & Electronics',
-    useCase: 'Wafer and reel genealogy, stocker automation, SMT line OEE, EMS costing in Oracle.',
+    icon: Cpu,
+    useCase: 'Track every wafer and reel, keep lines running, and get accurate costs in Oracle.',
     image: media.wafer,
   },
   {
     name: 'Automotive & Components',
-    useCase: 'Part-level traceability, error-proofing, PPAP records and JIT/JIS sequencing.',
+    icon: Car,
+    useCase: 'Track every part, prevent assembly mistakes, and deliver parts in the right order.',
     image: media.autoLine,
   },
   {
     name: 'Pharma & Life Sciences',
-    useCase: 'Electronic batch records, GMP-compliant MES and serialization linked to ERP lots.',
+    icon: Pill,
+    useCase: 'Digital batch records, compliant production systems and product serial numbers linked to Oracle.',
   },
   {
     name: 'Industrial Machinery',
-    useCase: 'Engineer-to-order planning, connected-product service and field maintenance apps.',
+    icon: Cog,
+    useCase: 'Plan custom orders, support machines in the field and give service teams mobile apps.',
     image: media.robotArm,
   },
   {
     name: 'Chemicals & Process',
-    useCase: 'Recipe management, tank and silo inventory, batch genealogy and yield tracking.',
+    icon: FlaskConical,
+    useCase: 'Manage recipes, track tank and silo stock, and measure how much each batch produces.',
   },
   {
     name: 'FMCG & Food',
-    useCase: 'High-speed line OEE, weight control, shelf-life and recall readiness.',
+    icon: ShoppingBasket,
+    useCase: 'Keep fast lines running, control pack weights and be ready for recalls.',
   },
   {
     name: 'Logistics & Warehousing',
-    useCase: 'WMS to ERP integration, automated storage, handheld picking and dock scheduling.',
+    icon: Truck,
+    useCase: 'Connect your warehouse to Oracle, with handheld picking and dock scheduling.',
     image: media.warehouse,
   },
   {
     name: 'Energy & Utilities',
-    useCase: 'Asset condition monitoring, work management and regulatory reporting.',
+    icon: Zap,
+    useCase: 'Watch equipment health, manage field work and produce regulatory reports.',
   },
   {
     name: 'Metals & Mining',
-    useCase: 'Heat and coil tracking, weighbridge integration and energy per tonne.',
+    icon: Pickaxe,
+    useCase: 'Track every batch, connect weighbridges and measure energy used per tonne.',
   },
   {
     name: 'Retail & Distribution',
-    useCase: 'Branch and field apps, dark-store fulfilment and inventory visibility.',
+    icon: Store,
+    useCase: 'Branch and field apps, fast order fulfilment and live stock levels.',
   },
 ]
 
@@ -372,113 +441,127 @@ export const phases = [
   {
     name: 'Assess',
     duration: '2–4 weeks',
-    body: 'Walk the floor, map systems level by level, and baseline the KPIs that matter.',
-    deliverables: ['Current-state ISA-95 map', 'Gap and risk register', 'Prioritized business case'],
+    body: 'We visit your site, look at the systems you use, and measure where you are today.',
+    deliverables: ['Map of your current systems', 'List of gaps and risks', 'Business case with priorities'],
   },
   {
-    name: 'Architect',
+    name: 'Design',
     duration: '3–6 weeks',
-    body: 'Design the target data flows from sensor to ledger, and a phased roadmap to get there.',
-    deliverables: ['Target architecture', 'Integration and security design', 'Release plan with owners'],
+    body: 'We design how everything will connect and plan the work in stages.',
+    deliverables: ['Design of the new setup', 'Connection and security plan', 'Delivery plan with owners'],
   },
   {
     name: 'Implement',
     duration: 'Phased releases',
-    body: 'Deliver in production-ready increments, starting with a single line or site as the pilot.',
-    deliverables: ['Configured systems and integrations', 'Tested cutover', 'Trained super-users'],
+    body: 'We build and launch in small steps, starting with one line or site.',
+    deliverables: ['Working, connected systems', 'Tested go-live', 'Trained key users'],
   },
   {
-    name: 'Run & improve',
+    name: 'Support',
     duration: 'Ongoing',
-    body: 'Support the live estate, measure against the baseline and roll out to the next line.',
-    deliverables: ['SLA-backed support', 'Quarterly value review', 'Continuous improvement backlog'],
+    body: 'We support what we built, track the results and roll out to the next site.',
+    deliverables: ['Support with agreed response times', 'Results review every quarter', 'Ongoing list of improvements'],
   },
 ]
 
 export const engagements = [
   {
     name: 'Readiness assessment',
+    icon: ClipboardCheck,
     body: 'Fixed-fee, fixed-scope review of one site. Ends with a roadmap you own, whoever you choose to build it.',
   },
   {
     name: 'Transformation program',
+    icon: Rocket,
     body: 'Multi-phase delivery of automation, MES or Oracle scope, with a named program lead and milestone-based billing.',
   },
   {
     name: 'Managed services',
+    icon: Headset,
     body: 'Monthly retainer for application, integration and OT support with defined service levels.',
   },
   {
     name: 'Specialist augmentation',
+    icon: Users,
     body: 'Oracle functional and technical consultants, automation engineers or Flutter developers inside your team.',
   },
 ]
 
-export const platforms: { layer: string; items: string[] }[] = [
+export const platforms: { layer: string; icon: LucideIcon; items: string[] }[] = [
   {
     layer: 'Enterprise',
+    icon: Building2,
     items: ['Oracle Fusion Cloud SCM', 'Oracle Manufacturing', 'Oracle Maintenance', 'Oracle Quality', 'E-Business Suite 12.2', 'Oracle Integration Cloud', 'APEX', 'Visual Builder', 'OTBI & BI Publisher'],
   },
   {
     layer: 'Operations & Data',
+    icon: Network,
     items: ['MES / MOM platforms', 'Process historians', 'Ignition', 'Kepware', 'PostgreSQL', 'Time-series databases', 'Python', 'FastAPI'],
   },
   {
     layer: 'Control & Connectivity',
+    icon: Cpu,
     items: ['Siemens S7 / TIA Portal', 'Rockwell Logix', 'Schneider & ABB controllers', 'OPC UA', 'MQTT / Sparkplug B', 'Modbus TCP', 'Edge gateways'],
   },
   {
     layer: 'Apps & AI',
+    icon: AppWindow,
     items: ['Flutter', 'React', 'Computer vision', 'Forecasting models', 'RPA platforms', 'LLM copilots', 'Docker'],
   },
 ]
 
 export const differentiators = [
   {
-    title: 'One team from PLC to P&L',
-    body: 'Automation engineers and Oracle consultants plan together, so integrations are designed once, not argued over twice.',
+    title: 'One team, start to finish',
+    icon: Layers,
+    body: 'Our automation engineers and Oracle consultants plan together, so everything is designed once and fits.',
   },
   {
-    title: 'Oracle-native manufacturing depth',
-    body: 'We configure Fusion and EBS the way plants actually run: routings, resources, WIP, costing and maintenance.',
+    title: 'Deep Oracle experience',
+    icon: Building2,
+    body: 'We set up Oracle Fusion and E-Business Suite the way factories really work.',
   },
   {
-    title: 'Senior people on the work',
-    body: 'The consultants you meet in the assessment are the ones who design and deliver it.',
+    title: 'Experienced people do the work',
+    icon: UserCheck,
+    body: 'The people you meet at the start are the people who build it.',
   },
   {
-    title: 'Security designed in',
-    body: 'Connecting the floor to the cloud is done with segmentation, least privilege and IEC 62443 principles from day one.',
+    title: 'Secure from day one',
+    icon: Lock,
+    body: 'Every connection between your factory and the cloud is protected, following industry security standards.',
   },
   {
-    title: 'Vendor-neutral on the floor',
-    body: 'We work with the PLCs, SCADA and MES you already own and recommend change only where it pays back.',
+    title: 'We work with what you have',
+    icon: Shuffle,
+    body: 'We use the machines and systems you already own, and only suggest changes that pay off.',
   },
   {
-    title: 'Hyderabad delivery, global hours',
-    body: 'Delivery from Gachibowli with overlap for India, Middle East, Europe and US time zones.',
+    title: 'Based in Hyderabad, working worldwide',
+    icon: Globe,
+    body: 'Our team in Gachibowli works hours that overlap with India, the Middle East, Europe and the US.',
   },
 ]
 
 export const insights = [
   {
     category: 'Architecture',
-    title: 'ISA-95 in practice: where your MES ends and Oracle begins',
-    summary: 'A pragmatic split of responsibilities that keeps both systems simple.',
+    title: 'Factory software or Oracle: which system should do what?',
+    summary: 'A simple way to split the work so both systems stay easy to run.',
     readingTime: '7 min read',
     image: media.opsRoom,
   },
   {
     category: 'Oracle ERP',
-    title: 'EBS 12.2 or Fusion Cloud? A decision framework for manufacturers',
-    summary: 'Five questions that decide whether to upgrade, migrate or run both for a while.',
+    title: 'Should you upgrade Oracle EBS or move to Fusion Cloud?',
+    summary: 'Five questions that help you decide to upgrade, move, or run both for a while.',
     readingTime: '9 min read',
     image: media.erpDesk,
   },
   {
     category: 'Automation',
-    title: 'Lights-out readiness: five checks before you remove the night shift',
-    summary: 'What has to be true in control, MES and ERP before a shift runs unmanned.',
+    title: 'Five checks before you run a shift without staff',
+    summary: 'What needs to be in place before a shift can run on its own.',
     readingTime: '6 min read',
     image: media.robotArm,
   },

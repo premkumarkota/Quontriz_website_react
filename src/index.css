@@ -79,6 +79,20 @@
   }
 }
 
+/* Light that flows up the filled signal rail. */
+.rail-flow {
+  animation: rail-flow 1.6s linear infinite;
+}
+
+@keyframes rail-flow {
+  from {
+    bottom: -4rem;
+  }
+  to {
+    bottom: 100%;
+  }
+}
+
 @keyframes line-rise {
   to {
     transform: translateY(0);
@@ -92,5 +106,8 @@
   .reveal-line > span {
     animation: none;
     transform: none;
+  }
+  .rail-flow {
+    animation: none;
   }
 }

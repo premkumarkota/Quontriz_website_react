@@ -55,48 +55,40 @@ export function Hero() {
         </div>
 
         <ul className="mt-20 grid gap-5 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
-          {heroServices.map(({ icon: Icon, title, body, href }, i) => (
+          {heroServices.map(({ icon: Icon, title, body, href, image }, i) => (
             <li key={title}>
               <Reveal delay={0.3 + i * 0.07} className="h-full">
                 <a
                   href={href}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white p-7 transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-cobalt/30 hover:shadow-[0_28px_60px_-32px_rgb(10_22_40/0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt"
+                  className="group flex h-full flex-col rounded-[24px] border border-line bg-white p-2 shadow-[0_1px_2px_rgb(10_22_40/0.04)] transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-[0_36px_70px_-36px_rgb(26_79_227/0.45)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt"
                 >
-                  {/* Accent rule that draws across the top edge on hover. */}
-                  <span
-                    className="pointer-events-none absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-cobalt to-brand-300 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
-                    aria-hidden
-                  />
-                  {/* Faint tint that warms the surface as the card lifts. */}
-                  <span
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-50/0 to-brand-50/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    aria-hidden
-                  />
-
-                  <div className="relative flex items-start justify-between">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-cobalt ring-1 ring-inset ring-brand-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-cobalt group-hover:text-white group-hover:ring-cobalt">
-                      <Icon size={21} strokeWidth={1.8} className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110" />
-                    </span>
-                    <span className="tag text-steel/50 transition-colors duration-500 group-hover:text-cobalt">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
+                  <div className="relative aspect-[16/11] overflow-hidden rounded-[18px] bg-porcelain">
+                    <img
+                      src={image}
+                      alt=""
+                      className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+                      loading="eager"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/25 via-transparent to-transparent" aria-hidden />
                   </div>
 
-                  <h2 className="relative mt-6 text-[1.1rem] font-semibold tracking-[-0.01em] text-ink">{title}</h2>
-                  <p className="relative mt-2.5 text-[0.93rem] leading-[1.62] text-steel">{body}</p>
+                  <div className="flex flex-1 flex-col px-4 pb-4 pt-5">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-cobalt ring-1 ring-inset ring-brand-100 transition-colors duration-300 group-hover:bg-cobalt group-hover:text-white group-hover:ring-cobalt">
+                        <Icon size={19} strokeWidth={1.8} />
+                      </span>
+                      <h2 className="text-[1.08rem] font-semibold tracking-[-0.01em] text-ink">{title}</h2>
+                    </div>
+                    <p className="mt-3.5 text-[0.93rem] leading-[1.62] text-steel">{body}</p>
 
-                  <span className="relative mt-auto flex items-center gap-2.5 pt-6 text-[0.85rem] font-semibold text-steel transition-colors duration-300 group-hover:text-cobalt">
-                    <span className="relative">
+                    <span className="mt-auto flex items-center justify-between pt-6 text-[0.88rem] font-semibold text-ink transition-colors duration-300 group-hover:text-cobalt">
                       Learn more
-                      <span
-                        className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-cobalt transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
-                        aria-hidden
-                      />
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-porcelain text-ink transition-all duration-300 group-hover:bg-cobalt group-hover:text-white">
+                        <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:-translate-y-px group-hover:translate-x-px" />
+                      </span>
                     </span>
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-line text-steel transition-all duration-300 group-hover:border-cobalt group-hover:bg-cobalt group-hover:text-white">
-                      <ArrowUpRight size={13} className="transition-transform duration-300 group-hover:-translate-y-px group-hover:translate-x-px" />
-                    </span>
-                  </span>
+                  </div>
                 </a>
               </Reveal>
             </li>
