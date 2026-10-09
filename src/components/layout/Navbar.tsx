@@ -54,7 +54,7 @@ export function Navbar() {
     >
       <Container className="flex h-[4.5rem] items-center justify-between gap-2 sm:gap-6 lg:h-20">
         <a href="#home" className="flex shrink-0 items-center" aria-label="QUONTRIZ home">
-          <Logo />
+          <Logo inverted={!raised} />
         </a>
 
         <nav className="hidden h-full items-center gap-1 lg:flex" aria-label="Primary">
@@ -69,7 +69,7 @@ export function Navbar() {
                   onClick={(e) => (e.detail === 0 ? setMega((v) => !v) : showMega())}
                   className={clsx(
                     'flex items-center gap-1.5 rounded-[3px] px-3.5 py-2 text-[0.95rem] font-medium transition-colors',
-                    'text-ink hover:bg-ink/5',
+                    raised ? 'text-ink hover:bg-ink/5' : 'text-white hover:bg-white/10',
                   )}
                 >
                   {link.label}
@@ -82,7 +82,7 @@ export function Navbar() {
                 href={link.href}
                 className={clsx(
                   'rounded-[3px] px-3.5 py-2 text-[0.95rem] font-medium transition-colors',
-                  'text-ink hover:bg-ink/5',
+                  raised ? 'text-ink hover:bg-ink/5' : 'text-white hover:bg-white/10',
                 )}
               >
                 {link.label}
@@ -94,7 +94,10 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Button
             href="#contact"
-            className="whitespace-nowrap !px-3 !py-2 !text-[0.78rem] sm:!px-5 sm:!py-2.5 sm:!text-[0.9rem] lg:!px-6 lg:!text-[0.95rem]"
+            className={clsx(
+              raised || '!border !border-white/80 !bg-transparent !text-white !shadow-none hover:!bg-white hover:!text-ink',
+              'whitespace-nowrap !px-3 !py-2 !text-[0.78rem] sm:!px-5 sm:!py-2.5 sm:!text-[0.9rem] lg:!px-6 lg:!text-[0.95rem]',
+            )}
           >
             {/* Short label on the narrowest phones so it never crowds the hamburger. */}
             <span className="min-[380px]:hidden">Talk to us</span>
@@ -102,7 +105,7 @@ export function Navbar() {
           </Button>
           <button
             type="button"
-            className="-mr-1.5 p-2 text-ink lg:hidden"
+            className={clsx('-mr-1.5 p-2 lg:hidden', raised ? 'text-ink' : 'text-white')}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}

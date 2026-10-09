@@ -13,7 +13,7 @@ export function LevelTags({ active }: { active: Level[] }) {
           <span
             key={l}
             className={clsx(
-              'font-mono text-[0.7rem] font-medium leading-none px-1.5 py-1 rounded-[2px]',
+              'font-sans text-[0.7rem] font-semibold leading-none px-1.5 py-1 rounded-[2px]',
               on ? 'bg-cobalt text-white' : 'text-steel/60 ring-1 ring-inset ring-line',
             )}
           >

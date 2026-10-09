@@ -23,11 +23,8 @@ import {
   Users,
   Zap,
   CalendarCheck,
-  ClipboardList,
-  Clock3,
   Database,
   Factory,
-  GitBranch,
   LifeBuoy,
   ShieldCheck,
   Smartphone,
@@ -37,10 +34,9 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import erpDesk from '../assets/media/erp-desk.jpg'
-import heroAi from '../assets/media/hero-ai.jpg'
-import heroApps from '../assets/media/hero-apps.jpg'
-import heroAutomation from '../assets/media/hero-automation.jpg'
-import heroErp from '../assets/media/hero-erp.jpg'
+import heroAutomationFactory from '../assets/media/hero-automation-factory.jpg'
+import heroMobileDesign from '../assets/media/hero-mobile-design.jpg'
+import heroOracleTeam from '../assets/media/hero-oracle-team.jpg'
 import fieldErp from '../assets/media/field-erp.jpg'
 import hitecNight from '../assets/media/hitec-night.jpg'
 import mobileApp from '../assets/media/mobile-app.jpg'
@@ -120,52 +116,63 @@ export const navLinks = [
   { label: 'Company', href: '#company' },
 ]
 
-export const heroServices = [
-  {
-    icon: Database,
-    title: 'Oracle ERP',
-    body: 'We set up, upgrade and support Oracle for your business.',
-    href: '#service-oracle',
-    image: heroErp,
-  },
-  {
-    icon: Factory,
-    title: 'Industrial Automation',
-    body: 'We connect your factory machines to your business software.',
-    href: '#service-automation',
-    image: heroAutomation,
-  },
-  {
-    icon: Smartphone,
-    title: 'Mobile & Web Products',
-    body: 'Mobile apps, websites and portals, designed and built for you.',
-    href: '#service-engineering',
-    image: heroApps,
-  },
-  {
-    icon: Sparkles,
-    title: 'AI & Automation',
-    body: 'Smart tools that forecast demand, check quality and cut manual work.',
-    href: '#service-ai',
-    image: heroAi,
-  },
-]
+export type HeroSlide = {
+  label: string
+  tag: string
+  title: [string, string]
+  body: string
+  cta: { label: string; href: string }
+  /** Photo behind the slide; slides without one show the animated brand scene. */
+  image?: string
+}
 
-export const gaps = [
+export const heroSlides: HeroSlide[] = [
   {
-    icon: ClipboardList,
-    title: 'Downtime is written on paper',
-    body: 'When a machine stops, someone writes the reason on paper and types it in later. Maintenance is planned from memory, not real machine history.',
+    label: 'Overview',
+    tag: 'QUONTRIZ Technologies',
+    title: ['We build your ideas', 'into enterprise products.'],
+    body: 'From Oracle ERP to factory automation, mobile apps and AI, we design, build and support the software your business runs on.',
+    cta: { label: 'Start your project', href: '#contact' },
+    image: hitecNight,
   },
   {
-    icon: Clock3,
-    title: 'Your business software is always behind',
-    body: 'Production, waste and material use are entered at the end of the day, so stock levels and costs are never quite right.',
+    label: 'About us',
+    tag: 'About QUONTRIZ',
+    title: ['One team for your', 'factory and your Oracle.'],
+    body: 'Most companies hire one partner for the factory and another for Oracle. Our engineers and Oracle consultants work as one team.',
+    cta: { label: 'About QUONTRIZ', href: '#company' },
   },
   {
-    icon: GitBranch,
-    title: 'Finding the cause of a bad batch takes days',
-    body: 'When a batch fails, finding which machine, recipe or supplier caused it means days of digging through spreadsheets.',
+    label: 'Oracle ERP',
+    tag: 'Oracle Fusion Cloud · E-Business Suite',
+    title: ['Set up, upgrade and', 'support Oracle.'],
+    body: 'We set Oracle up for the way your business works, move your data across safely and stay with you after go-live.',
+    cta: { label: 'Explore Oracle ERP', href: '#service-oracle' },
+    image: heroOracleTeam,
+  },
+  {
+    label: 'Industrial Automation',
+    tag: 'Machines · MES · Oracle',
+    title: ['Connect your factory', 'to your business software.'],
+    body: 'Machine data flows straight into your business software, so stock, costs and downtime are always up to date.',
+    cta: { label: 'Explore automation', href: '#service-automation' },
+    image: heroAutomationFactory,
+  },
+  {
+    label: 'Mobile & Web',
+    tag: 'iOS · Android · Web',
+    title: ['Mobile apps and websites,', 'designed and built for you.'],
+    body: 'Apps for your customers, your field teams and your shop floor, built to work with the systems you already use.',
+    cta: { label: 'Explore mobile & web', href: '#service-engineering' },
+    image: heroMobileDesign,
+  },
+  {
+    label: 'AI Solutions',
+    tag: 'Forecasting · Quality · Automation',
+    title: ['Smart tools that', 'cut manual work.'],
+    body: 'Forecast demand, catch quality problems early and take repetitive data entry off your team.',
+    cta: { label: 'Explore AI solutions', href: '#service-ai' },
+    image: wafer,
   },
 ]
 

@@ -2,7 +2,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { Hero } from './components/sections/Hero'
-import { Gap } from './components/sections/Gap'
+import { Highlights } from './components/sections/Highlights'
 import { Services } from './components/sections/Services'
 import { Outcomes } from './components/sections/Outcomes'
 import { Industries } from './components/sections/Industries'
@@ -23,7 +23,7 @@ function App() {
       <Navbar />
       <main id="main">
         <Hero />
-        <Gap />
+        <Highlights />
         <Services />
         <Outcomes />
         <Industries />

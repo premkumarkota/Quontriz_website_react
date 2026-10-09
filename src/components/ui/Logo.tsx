@@ -19,7 +19,7 @@ export function Logo({
         'shrink-0 object-contain object-left',
         size === 'hero'
           ? 'h-16 w-auto max-w-[280px] sm:h-20 lg:h-24'
-          : 'h-6 w-auto max-w-[160px] sm:h-9 sm:max-w-[250px] lg:h-10 lg:max-w-[270px]',
+          : 'h-5 w-auto max-w-[135px] sm:h-7 sm:max-w-[200px] lg:h-8 lg:max-w-[215px]',
         className,
       )}
     />
